@@ -21,16 +21,9 @@
 <div class="row entries">
     <div class="all-entries col-xs-12 text-center">
         <ul class="link-list">
-            <li><a href="#">Saturday, 2nd of January 2016</a></li>
-            <li><a href="#">Friday, 1st of January 2016</a></li>
-            <li><a href="#">Thursday, 31st of December 2015</a></li>
-            <li><a href="#">Wednesday, 30th of December 2015</a></li>
-            <li><a href="#">Tuesday, 29th of December 2015</a></li>
-            <li><a href="#">Monday, 28th of December 2015</a></li>
-            <li><a href="#">Sunday, 27th of December 2015</a></li>
-            <li><a href="#">Saturday, 26th of December 2015</a></li>
-            <li><a href="#">Friday, 25th of December 2015</a></li>
-            <li><a href="#">Thursday, 24th of December 2015</a></li>
+            <% @entries.each do |entry| %>
+                <li><a href="#"><%= link_to entry.created_at.strftime("%A, %d of %B %Y") %></a></li>
+            <% end %>
         </ul>
     </div>
 </div>

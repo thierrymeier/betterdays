@@ -3,6 +3,7 @@ class EntriesController < ApplicationController
   end
 
   def index
+    @entries = Entry.all
   end
 
   def show
