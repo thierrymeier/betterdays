@@ -1,3 +1,7 @@
+<% flash.each do |name, msg| %>
+      <%= content_tag(:div, msg, class: "alert alert-info") %>
+    <% end %>
+
 <div class="header clearfix">
   <nav>
       <ul class="nav navbar-nav pull-right">

@@ -1,2 +1,13 @@
-<h1>Entries#show</h1>
-<p>Find me in app/views/entries/show.html.erb</p>
+<div class="row">
+  <div class="single-entry col-xs-12 text-center">
+    <div class="single-entry-actions pull-right">
+        <a href="#">Edit</a>
+        <a href="#">Close</a>
+    </div>
+    <h1><%= @entry.created_at.strftime("%A, %d of %B") %></h1>
+    <p>
+      <%= @entry.content %>
+    </p>
+
+  </div>
+</div>

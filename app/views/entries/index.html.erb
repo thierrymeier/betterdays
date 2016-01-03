@@ -7,12 +7,13 @@
 <div class="row compose">
     <div class="compose-entry col-xs-12 text-center">
         <h1><%= Time.now.strftime("%A, %d of %B %Y") %></h1>
-        <form>
-            <div class="form-group">
-                <input type="text" class="form-control compose-textarea" placeholder="Tell me about your day.." />
-            </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        <%= form_for(@entry) do |f| %>
+        
+            <%= f.text_field :content, class: 'form-control compose-textarea', placeholder: "Tell me about your day.." %> 
+            
+            <%= f.submit "Submit", class: "btn btn-primary" %>
+        
+        <% end %>
     </div>
 </div>
 
@@ -22,26 +23,10 @@
     <div class="all-entries col-xs-12 text-center">
         <ul class="link-list">
             <% @entries.each do |entry| %>
-                <li><a href="#"><%= link_to entry.created_at.strftime("%A, %d of %B %Y") %></a></li>
+                <li><%= link_to entry.created_at.strftime("%A, %d of %B %Y"), entry %></li>
             <% end %>
         </ul>
     </div>
 </div>
 
-<footer class="footer row">
-    <div class="blurb col-xs-6 text-left">
-        <p>With Love, Better Days.</p>
-    </div>
-
-    <div class="mininav pull-right col-xs-6 text-right">
-        <a href="#">Got an idea?</a>
-        <a href="#">Follow us</a>
-    </div>
-</footer>
-
-</div> <!-- /container -->
-
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="js/bootstrap.min.js"></script>
+<%= render 'layouts/footer' %>

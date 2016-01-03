@@ -12,6 +12,10 @@ body {
     width: 768px;
 }
 
+.container-show {
+    width: 860px;
+}
+
 a {
     text-decoration: underline;
 }
@@ -23,6 +27,17 @@ a {
     -webkit-border-radius: 3px;
     width: 6px;
     margin: 40px auto;
+}
+
+.btn-primary {
+    background: #000000;
+    border: none;
+    border-radius: 2px;
+    font-size: 18px;
+    font-weight: 700;
+    height: 50px;
+    font-family: NeuzeitGro-Bol;
+    padding: 6px 20px 0px 20px;
 }
 
 /*** Typography ***/
@@ -161,6 +176,117 @@ h1 {
     padding: 7px 5px 3px 6px;
 }
 
+/*** Single Entry ***/
+.single-entry {
+    background: #FFFFFF;
+    box-shadow: 0px -2px 4px 0px rgba(229,229,229,0.50), 0px 2px 4px 0px rgba(228,228,228,0.50);
+    border-radius: 8px;
+    padding: 37px 50px 50px 50px;
+    margin-top: 35px;
+}
+
+
+
+.single-entry h1 {
+    margin-bottom: 18px;
+}
+
+.single-entry p {
+    font-family: NeuzeitGro-Reg;
+    font-size: 18px;
+    color: #000000;
+    line-height: 28px;
+    margin-bottom: 28px;
+}
+
+.single-entry p:last-child {
+    margin-bottom: 0px;
+}
+
+.single-entry-edit button {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.single-entry-actions {
+    position: absolute;
+    padding-left: 96%;
+    top: 17px;
+    right: 22px;
+}
+
+.single-entry-actions a {
+    font-family: NeuzeitGro-Reg;
+    font-size: 14px;
+    color: #D8D8D8;
+    margin-left: 10px;
+}
+
+.single-entry-actions-edit a {
+    color: #000000;
+}
+
+/*** Settings ***/
+.settings h1 {
+    margin-top: 58px;
+}
+
+.settings form {
+    margin-top: 38px;
+}
+
+.settings .form-group {
+    margin-bottom: 21px;
+}
+
+.settings .form-group:last-child {
+    margin-bottom: 40px;
+}
+
+.settings label {
+    font-size: 16px;
+    font-weight: 700;
+    font-family: NeuzeitGro-Bol;
+}
+
+.settings input.text {
+    background: #FFFFFF;
+    border: 2px solid #EBEBEB;
+    border-radius: 100px;
+    box-shadow: none;
+    height: 39px;
+    width: 346px;
+    display: inline;
+    font-size: 16px;
+    color: #000000;
+    font-family: NeuzeitGro-Reg;
+    padding-top: 10px;
+    text-align: center;
+}
+
+.settings button {
+    margin-top: 17px;
+    margin-bottom: 20px;
+}
+
+.checkbox {
+    margin-top: 35px;
+}
+
+.checkbox label {
+    font-family: NeuzeitGro-Reg;
+    font-weight: 500;
+    height: 0px;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+
+.checkbox a {
+    color: #D9D9D9;
+}
+
+
 /*** Footer ***/
 .footer {
     font-family: NeuzeitGro-Reg;
@@ -178,4 +304,9 @@ h1 {
     line-height: 34px;
     text-decoration: none;
     padding-left: 28px;
+}
+
+.footer-show {
+    padding-left: 50px;
+    padding-right: 50px;
 }
