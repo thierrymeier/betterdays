@@ -1,0 +1,181 @@
+html {
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    color: #000000
+}
+
+/*** General ***/
+
+.container {
+    width: 768px;
+}
+
+a {
+    text-decoration: underline;
+}
+
+.circle {
+    background-color: #D8D8D8;
+    height: 6px;
+    -moz-border-radius:3px;
+    -webkit-border-radius: 3px;
+    width: 6px;
+    margin: 40px auto;
+}
+
+/*** Typography ***/
+h1 {
+    font-family: NeuzeitGro-Bol;
+    font-size: 36px;
+    line-height: 44px;
+}
+
+/*** Navigation ***/
+.navbar-nav {
+    font-family: NeuzeitGro-Reg;
+    font-size: 14px;
+}
+
+.navbar-nav a {
+    color: #D8D8D8;
+}
+
+/*** Logo ***/
+
+.logo {
+    margin-top: 5px;
+}
+
+
+/*** Search Bar ***/
+.search {
+    margin-top: 16px;
+}
+
+.search input {
+    background: #FFFFFF;
+    border: 2px solid #EBEBEB;
+    border-radius: 100px;
+    box-shadow: none;
+    height: 39px;
+    width: 346px;
+    display: inline;
+    font-size: 16px;
+    color: #000000;
+    font-family: NeuzeitGro-Reg;
+    padding-top: 10px;
+    padding-left: 15px;
+    text-align: center;
+}
+
+.search input.active {
+    border: 2px solid black;
+}
+
+.search.textarea:focus, .search input:focus {
+    border-color: #000000;
+    box-shadow: none;
+}
+
+/*** New Entry ***/
+.compose {
+    margin-top: 45px;
+}
+
+
+.compose input {
+    font-size: 18px;
+    color: #000000;
+    font-family: NeuzeitGro-Reg;
+    border: none;
+    box-shadow: none;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.compose.textarea:focus, .compose input:focus {
+    border: none;
+    box-shadow: none;
+}
+
+.compose button {
+    display: none;
+}
+
+/*** Entries ***/
+.entries {
+    margin-top: 70px;
+}
+
+.entries a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.entries a:hover {
+    text-decoration: underline;
+}
+
+.entries ul {
+    padding-left: 0px;
+}
+
+.entries li {
+    font-family: NeuzeitGro-Reg;
+    font-size: 18px;
+    line-height: 34px;
+    list-style-type: none;
+}
+
+/*** Search Results ***/
+.search-result-list {
+    margin-top: 42px;
+}
+
+.search-result-list h2 {
+    font-family: NeuzeitGro-Reg;
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 12px;
+    border-bottom: 1px solid black;
+    display: inline-block;
+    line-height: 14px;
+}
+
+.search-result-list p {
+    font-family: NeuzeitGro-Reg;
+    font-size: 14px;
+    color: #C0C0C0;
+    line-height: 23px;
+}
+
+.search-result {
+    margin-bottom: 32px;
+}
+
+.search-result strong {
+    color: #000000;
+    background-color: #FFFDE0;
+    padding: 7px 5px 3px 6px;
+}
+
+/*** Footer ***/
+.footer {
+    font-family: NeuzeitGro-Reg;
+    font-size: 14px;
+    color: #BFBFBF;
+    line-height: 34px;
+    margin-top: 65px;
+    margin-bottom: 30px;
+}
+
+.footer a {
+    font-family: NeuzeitGro-Reg;
+    font-size: 14px;
+    color: #BFBFBF;
+    line-height: 34px;
+    text-decoration: none;
+    padding-left: 28px;
+}
