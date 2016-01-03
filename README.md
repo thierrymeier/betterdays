@@ -1,6 +1,3 @@
 # Introduction
 
-Roses are red
-Violets are blue
-This repo here
-Is for you.
+Roses are red, violets are blue. This repo here, is for you.
