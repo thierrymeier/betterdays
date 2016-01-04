@@ -113,10 +113,12 @@ h1 {
     text-align: center;
     margin-top: 15px;
     resize: none;
+    height: 28px;
+    line-height: 28px;
 }
 
 .compose input.btn.btn-primary {
-    margin-top: 0px;
+    margin-top: 23px;
 }
 
 .compose-textarea::-webkit-input-placeholder, .edit_entry::-webkit-input-placeholder {
