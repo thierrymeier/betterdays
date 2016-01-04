@@ -6,7 +6,7 @@
     <h1><%= @entry.created_at.strftime("%A, %d of %B") %></h1>
       <%= form_for(@entry) do |f| %>
         
-            <%= f.text_field :content, class: 'form-control compose-textarea text', autocomplete: "off", placeholder: "Tell me about your day.." %> 
+            <%= f.text_area :content, class: 'form-control compose-textarea text', autocomplete: "off", placeholder: "Tell me about your day.." %> 
             
             <%= f.submit "Save Changes", class: "btn btn-primary" %>
         
