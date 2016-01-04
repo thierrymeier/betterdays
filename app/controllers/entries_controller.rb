@@ -4,7 +4,7 @@ class EntriesController < ApplicationController
   end
 
   def index
-    @entries = Entry.all
+    @entries = Entry.all.order('entries.created_at DESC')
     @entry = Entry.new
   end
 
@@ -13,6 +13,18 @@ class EntriesController < ApplicationController
   end
 
   def edit
+    @entry = Entry.find(params[:id])
+  end
+  
+  def update
+    @entry = Entry.find(params[:id])
+    respond_to do |y|
+    if @entry.update_attributes(entry_params)
+      y.html { redirect_to @entry, notice: 'Entry was succcessfully updated.' }
+    else
+      y.html { render :edit, notice: "Couldn't update entry" }
+    end
+  end
   end
   
   def create

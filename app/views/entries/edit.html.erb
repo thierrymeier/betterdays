@@ -1,2 +1,18 @@
-<h1>Entries#edit</h1>
-<p>Find me in app/views/entries/edit.html.erb</p>
+<div class="row">
+  <div class="single-entry single-entry-edit col-xs-12 text-center">
+    <div class="single-entry-actions single-entry-actions-edit pull-right">
+        <%= link_to "Discard", root_path %>
+    </div>
+    <h1><%= @entry.created_at.strftime("%A, %d of %B") %></h1>
+      <%= form_for(@entry) do |f| %>
+        
+            <%= f.text_field :content, class: 'form-control compose-textarea text', autocomplete: "off", placeholder: "Tell me about your day.." %> 
+            
+            <%= f.submit "Save Changes", class: "btn btn-primary" %>
+        
+        <% end %>
+
+  </div>
+</div>
+
+<%= render 'layouts/footer' %>
