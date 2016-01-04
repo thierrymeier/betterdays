@@ -6,6 +6,20 @@ class EntriesController < ApplicationController
   def index
     @entries = Entry.all.order('entries.created_at DESC')
     @entry = Entry.new
+    
+    if params[:search]
+      @entries = Entry.search(params[:search]).order("created_at DESC")
+    else
+      @entries = Entry.all.order("created_at DESC")
+    end
+  end
+  
+  def search
+    if params[:search]
+      @entries = Entry.search(params[:search]).order("created_at DESC")
+    else
+      @entries = Entry.all.order("created_at DESC")
+    end
   end
 
   def show
@@ -15,6 +29,7 @@ class EntriesController < ApplicationController
   def edit
     @entry = Entry.find(params[:id])
   end
+  
   
   def update
     @entry = Entry.find(params[:id])
@@ -48,4 +63,5 @@ class EntriesController < ApplicationController
     def entry_params
       params.require(:entry).permit(:content, :location)
     end
+    
 end

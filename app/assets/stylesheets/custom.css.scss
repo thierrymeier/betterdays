@@ -123,6 +123,7 @@ h1 {
     margin-top: 15px;
     resize: none;
     height: 28px;
+    /*** height: 208px; ***/
     line-height: 28px;
 }
 
@@ -178,13 +179,18 @@ h1 {
 
 .search-result-list h2 {
     font-family: "neuzeit-grotesk";
-    font-weight: 700;
+    font-weight: 400;
     font-size: 18px;
     color: #000000;
     margin-bottom: 12px;
     border-bottom: 1px solid black;
     display: inline-block;
     line-height: 14px;
+}
+
+.search-result-list a {
+    color: #000000;
+    text-decoration: none;
 }
 
 .search-result-list p {
@@ -196,13 +202,14 @@ h1 {
 }
 
 .search-result {
-    margin-bottom: 32px;
+    margin-bottom: 23px;
 }
 
-.search-result strong {
+.search-result mark {
     color: #000000;
     background-color: #FFFDE0;
-    padding: 7px 5px 3px 6px;
+    padding: 3px 6px 4px 7px;
+    font-weight: 700;
 }
 
 /*** Single Entry ***/
@@ -332,7 +339,7 @@ h1 {
     font-size: 14px;
     color: #BFBFBF;
     line-height: 34px;
-    margin-top: 65px;
+    margin-top: 35px;
     margin-bottom: 30px;
 }
 
@@ -343,7 +350,7 @@ h1 {
     color: #BFBFBF;
     line-height: 34px;
     text-decoration: none;
-    padding-left: 28px;
+    padding-left: 12px;
 }
 
 .footer-show {

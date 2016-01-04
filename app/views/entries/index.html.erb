@@ -7,22 +7,33 @@
 
 <div class="row search">
     <div class="search col-xs-12 text-center">
-        <input type="text" class="form-control" placeholder="Search for previous entries.." />
+        
+        <%= form_tag(search_entries_path, :method => "post", class: "search-form") do %>
+            <%= text_field_tag :search, params[:search], placeholder: "Search for previous entries..", class: "form-control" %>
+        <% end %>
+        
     </div>
 </div>
-
 <div class="row compose">
     <div class="compose-entry col-xs-12 text-center">
-        <h1><%= Time.now.strftime("%A, %d of %B %Y") %></h1>
-        <%= form_for(@entry) do |f| %>
-        
-            <%= f.text_area :content, class: 'form-control compose-textarea textarea', autocomplete: "off", placeholder: "Hello Rachel, tell me about your day.." %> 
+        <% if Entry.first.created_at.strftime("%d %B %Y") == Time.now.strftime("%d %B %Y") %>
+            <h1>Done! You’ve written today’s journal! 😃</h1>
+        <% else %>
+            <h1><%= Time.now.strftime("%A, %d of %B %Y") %></h1>
+            <%= form_for(@entry) do |f| %>
             
-            <%= f.submit "Submit", class: "btn btn-primary" %>
+                <%= f.text_area :content, class: 'form-control compose-textarea textarea', autocomplete: "off", placeholder: "Hello Rachel, tell me about your day.." %> 
+                
+                <%= f.submit "Submit", class: "btn btn-primary" %>
         
+            <% end %>
         <% end %>
     </div>
-</div>
+</div>   
+
+
+
+
 
 <div class="row separator circle text-center"></div>
 

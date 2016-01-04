@@ -1,14 +1,19 @@
 Rails.application.routes.draw do
-  resources :entries
-  
   root                  'entries#index'
+  resources :entries do
+    collection do
+      post :search
+    end
+  end
+
   get   'home'      =>  'static_pages/home'
-  get   'help'      =>  'static_pages/help'
+  get   'help'      =>  'static_pages#help'
   get   'contact'   =>  'static_pages/contact'
   
   get   'new'       =>  'entries/new'
   get   'show'      =>  'entries/show'
   get   'edit'      =>  'entries/edit'
+  get   'search'    =>  'entries/search'
   
 
   # The priority is based upon order of creation: first created -> highest priority.
