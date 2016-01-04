@@ -29,13 +29,11 @@ class EntriesController < ApplicationController
   
   def create
     @entry = Entry.new(entry_params)
-    @entry.save
     respond_to do |x|
-      
       if @entry.save
         x.html { redirect_to root_path, notice: 'Entry was successfully created.' }
       else
-        x.html { render :new, notice: 'Entry could not be saved.' }
+        x.html { redirect_to root_path, notice: 'Entry not saved. Write more than 50 characters. Sorry for not saving what you wrote, hihi.' }
       end
     end
   end
