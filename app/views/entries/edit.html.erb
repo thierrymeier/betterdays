@@ -8,6 +8,7 @@
 <div class="row">
   <div class="single-entry single-entry-edit col-xs-12 text-center">
     <div class="single-entry-actions single-entry-actions-edit pull-right">
+        <%= link_to 'Delete', @entry, data: { confirm: "Are you sure?" }, class: "delete", :method => :delete %> 
         <%= link_to "Discard", @entry %>
     </div>
     <h1><%= @entry.created_at.strftime("%A, %d of %B") %></h1>

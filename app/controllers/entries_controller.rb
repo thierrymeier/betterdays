@@ -40,6 +40,12 @@ class EntriesController < ApplicationController
     end
   end
   
+  def destroy
+    @entry = Entry.find(params[:id]).destroy
+    flash[:success] = "Entry successfully deleted."
+    redirect_to root_path
+  end
+  
   private
     def entry_params
       params.require(:entry).permit(:content, :location)
