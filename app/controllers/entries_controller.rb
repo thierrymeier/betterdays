@@ -4,13 +4,25 @@ before_action :authorize
   def new
     @entry = Entry.new
   end
+  
+  def create
+    @entry = Entry.new(entry_params)
+    @entry.user_id = current_user.id
+    respond_to do |x|
+      if @entry.save
+        x.html { redirect_to root_path, notice: 'Entry was successfully created.' }
+      else
+        x.html { redirect_to root_path, notice: 'Entry not saved. Write more than 50 characters. Sorry for not saving what you wrote, hihi.' }
+      end
+    end
+  end
 
   def index
     
     if current_user.nil?
       redirect_to login_path, notice: 'Please log in!'
     else
-      @entries = Entry.all.order('entries.created_at DESC')
+      @entries = current_user.entries
       @entry = Entry.new
     end
     
@@ -30,7 +42,11 @@ before_action :authorize
   end
 
   def show
-    @entry = Entry.find(params[:id])
+    if current_user.entries.find_by_id(params[:id]).nil?
+      redirect_to root_path, notice: 'You can not do this'
+    else
+      @entry = current_user.entries.find(params[:id]) if current_user.entries.find_by_id(params[:id])
+    end
   end
 
   def edit
@@ -49,16 +65,7 @@ before_action :authorize
   end
   end
   
-  def create
-    @entry = Entry.new(entry_params)
-    respond_to do |x|
-      if @entry.save
-        x.html { redirect_to root_path, notice: 'Entry was successfully created.' }
-      else
-        x.html { redirect_to root_path, notice: 'Entry not saved. Write more than 50 characters. Sorry for not saving what you wrote, hihi.' }
-      end
-    end
-  end
+  
   
   def destroy
     @entry = Entry.find(params[:id]).destroy
@@ -68,7 +75,7 @@ before_action :authorize
   
   private
     def entry_params
-      params.require(:entry).permit(:content, :location)
+      params.require(:entry).permit(:content, :location, :user_id)
     end
     
 end

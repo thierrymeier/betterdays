@@ -14,10 +14,11 @@
         
     </div>
 </div>
+
 <div class="row compose">
     <div class="compose-entry col-xs-12 text-center">
-        <% if Entry.first.created_at.strftime("%d %B %Y") == Time.now.strftime("%d %B %Y") %>
-            <h1>Done! You’ve written today’s journal! 😃</h1>
+        <% if current_user.entries.any? && current_user.entries.last.created_at.strftime("%d %B %Y") == Time.now.strftime("%d %B %Y") %>
+            <h1>Done! You’ve written today’s journal!</h1>
         <% else %>
             <h1><%= Time.now.strftime("%A, %d of %B %Y") %></h1>
             <%= form_for(@entry) do |f| %>
@@ -31,20 +32,18 @@
     </div>
 </div>   
 
-
-
-
-
 <!--<div class="row separator circle text-center"></div>-->
 
+<% if current_user.entries.any? %>
 <div class="row entries">
     <div class="all-entries col-xs-12 text-center">
         <ul class="link-list">
-            <% @entries.each do |entry| %>
+            <% current_user.entries.each do |entry| %>
                 <li><%= link_to entry.created_at.strftime("%A, %d of %B %Y"), entry %></li>
             <% end %>
         </ul>
     </div>
 </div>
+<% end %>
 
 <%= render 'layouts/footer' %>

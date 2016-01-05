@@ -6,6 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+User.create!(email: "test@example.com",
+             password:              "foobar",
+             password_confirmation: "foobar")
+
 24.times do |n|
   content = Faker::Hipster.paragraphs(6).join("<br /> <br />")
   location = Faker::Address.city
@@ -14,5 +18,6 @@
   Entry.create!(content: content,
                 location: location,
                 rating: rating,
-                created_at: created_at)
+                created_at: created_at,
+                user_id: 1)
 end
