@@ -1,11 +1,18 @@
 class EntriesController < ApplicationController
+before_action :authorize
+
   def new
     @entry = Entry.new
   end
 
   def index
-    @entries = Entry.all.order('entries.created_at DESC')
-    @entry = Entry.new
+    
+    if current_user.nil?
+      redirect_to login_path, notice: 'Please log in!'
+    else
+      @entries = Entry.all.order('entries.created_at DESC')
+      @entry = Entry.new
+    end
     
     if params[:search]
       @entries = Entry.search(params[:search]).order("created_at DESC")

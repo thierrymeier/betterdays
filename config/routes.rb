@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :sessions
   resources :users
   resources :entries do
     collection do
@@ -18,7 +19,9 @@ Rails.application.routes.draw do
   get   'edit'      =>  'entries/edit'
   get   'search'    =>  'entries/search'
   
-  get   'users/new'
+  get   'signup'    =>  'users#new', as: 'signup'
+  get   'login'     =>  'sessions#new', as: 'login'
+  get   'logout'    =>  'sessions#destroy', as: 'logout'
   
 
   # The priority is based upon order of creation: first created -> highest priority.
