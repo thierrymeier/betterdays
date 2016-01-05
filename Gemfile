@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails',                    '4.2.4'
+gem 'bcrypt'
 gem 'pg'
 gem 'faker',                    '1.6.1'
 gem 'sass-rails',               '5.0.2'
