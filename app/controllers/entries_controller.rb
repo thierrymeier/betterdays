@@ -45,8 +45,7 @@ before_action :authorize
   
   def destroy
     @entry = Entry.find(params[:id]).destroy
-    flash[:success] = "Entry successfully deleted."
-    redirect_to root_path
+    redirect_to root_path, notice: 'Successfully deleted'
   end
   
   def search
