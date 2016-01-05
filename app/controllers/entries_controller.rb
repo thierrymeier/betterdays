@@ -1,46 +1,15 @@
 class EntriesController < ApplicationController
 before_action :authorize
 
-  def new
-    @entry = Entry.new
-  end
-  
-  def create
-    @entry = Entry.new(entry_params)
-    @entry.user_id = current_user.id
-    respond_to do |x|
-      if @entry.save
-        x.html { redirect_to root_path, notice: 'Entry was successfully created.' }
-      else
-        x.html { redirect_to root_path, notice: 'Entry not saved. Write more than 50 characters. Sorry for not saving what you wrote, hihi.' }
-      end
-    end
-  end
-
   def index
-    
     if current_user.nil?
       redirect_to login_path, notice: 'Please log in!'
     else
       @entries = current_user.entries
       @entry = Entry.new
     end
-    
-    if params[:search]
-      @entries = Entry.search(params[:search]).order("created_at DESC")
-    else
-      @entries = Entry.all.order("created_at DESC")
-    end
   end
   
-  def search
-    if params[:search]
-      @entries = Entry.search(params[:search]).order("created_at DESC")
-    else
-      @entries = Entry.all.order("created_at DESC")
-    end
-  end
-
   def show
     if current_user.entries.find_by_id(params[:id]).nil?
       redirect_to root_path, notice: 'You can not do this'
@@ -48,11 +17,20 @@ before_action :authorize
       @entry = current_user.entries.find(params[:id]) if current_user.entries.find_by_id(params[:id])
     end
   end
+  
+  def create
+    @entry = Entry.new(entry_params)
+    @entry.user_id = current_user.id
+    if @entry.save
+      redirect_to root_path, notice: 'Entry was successfully created.'
+    else
+      redirect_to root_path, notice: 'Entry not saved. Write more than 50 characters. Sorry for not saving what you wrote, hihi.'
+    end
+  end
 
   def edit
     @entry = Entry.find(params[:id])
   end
-  
   
   def update
     @entry = Entry.find(params[:id])
@@ -65,15 +43,22 @@ before_action :authorize
   end
   end
   
-  
-  
   def destroy
     @entry = Entry.find(params[:id]).destroy
     flash[:success] = "Entry successfully deleted."
     redirect_to root_path
   end
   
+  def search
+    if params[:search]
+      @entries = current_user.entries.search(params[:search]).order("created_at DESC")
+    else
+      @entries = Entry.all.order("created_at DESC")
+    end
+  end
+  
   private
+  
     def entry_params
       params.require(:entry).permit(:content, :location, :user_id)
     end

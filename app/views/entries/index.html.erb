@@ -17,7 +17,7 @@
 
 <div class="row compose">
     <div class="compose-entry col-xs-12 text-center">
-        <% if current_user.entries.any? && current_user.entries.last.created_at.strftime("%d %B %Y") == Time.now.strftime("%d %B %Y") %>
+        <% if @entries.any? && @entries.last.created_at.strftime("%d %B %Y") == Time.now.strftime("%d %B %Y") %>
             <h1 class="done">Done! You’ve written today’s journal!</h1>
         <% else %>
             <h1><%= Time.now.strftime("%A, %d of %B %Y") %></h1>
@@ -34,11 +34,11 @@
 
 <!--<div class="row separator circle text-center"></div>-->
 
-<% if current_user.entries.any? %>
+<% if @entries.any? %>
 <div class="row entries">
     <div class="all-entries col-xs-12 text-center">
         <ul class="link-list">
-            <% current_user.entries.each do |entry| %>
+            <% @entries.each do |entry| %>
                 <li><%= link_to entry.created_at.strftime("%A, %d of %B %Y"), entry %></li>
             <% end %>
         </ul>
