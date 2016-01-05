@@ -20,6 +20,30 @@ a {
     text-decoration: underline;
 }
 
+.alert {
+    padding: 3px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+    border: none;
+    font-size: 12px;
+    font-family: "neuzeit-grotesk";
+    font-weight: 700;
+    text-shadow: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.alert-info {
+    background-image: none;
+    background-repeat: none;
+    border-color: none;
+    background-color: #4194F6;
+    color: white;
+}
+
 .circle {
     background-color: #D8D8D8;
     height: 6px;
