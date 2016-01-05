@@ -3,7 +3,7 @@ class Entry < ActiveRecord::Base
   
   
   def self.search(search)
-    where("content ILIKE ? OR created_at ILIKE ?", "%#{search}%", "%#{search}%") 
+    where("content LIKE ? OR created_at LIKE ?", "%#{search}%", "%#{search}%") 
   end
   
 end
