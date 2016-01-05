@@ -279,29 +279,29 @@ h1.done {
 }
 
 /*** Settings ***/
-.settings h1 {
+.settings h1, .login h1, .signup h1 {
     margin-top: 58px;
 }
 
-.settings form {
+.settings form, .login form, .signup form {
     margin-top: 38px;
 }
 
-.settings .form-group {
+.settings .form-group, .login .form-group, .signup .form-group {
     margin-bottom: 21px;
 }
 
-.settings .form-group:last-child {
+.settings .form-group:last-child, .login .form-group:last-child, .signup .form-group:last-child {
     margin-bottom: 40px;
 }
 
-.settings label {
+.settings label, .login label, .signup label {
     font-size: 16px;
     font-weight: 700;
     font-family: "neuzeit-grotesk";
 }
 
-.settings input.text {
+.settings input.text, .login input.text, .signup input.text {
     background: #FFFFFF;
     border: 2px solid #EBEBEB;
     border-radius: 100px;
@@ -317,7 +317,7 @@ h1.done {
     font-weight: 400;
 }
 
-.settings button {
+.settings .btn, .signup .btn {
     margin-top: 17px;
     margin-bottom: 20px;
 }
@@ -337,6 +337,24 @@ h1.done {
 
 .checkbox a {
     color: #D9D9D9;
+}
+
+/*** Sign up and login ***/
+
+.login {
+    margin-top: 8px;
+}
+
+.logo-login {
+    margin-top: 80px;
+}
+
+.login form {
+    margin-top: 28px;
+}
+
+.login .btn {
+    margin-top: 29px;
 }
 
 
@@ -364,4 +382,15 @@ h1.done {
 .footer-show {
     padding-left: 50px;
     padding-right: 50px;
+}
+
+.login-footer {
+    position: absolute;
+    bottom: 5px;
+    margin-bottom: 0px;
+    left: 50%;
+}
+
+.login-footer2 {
+    left: -50%;
 }
