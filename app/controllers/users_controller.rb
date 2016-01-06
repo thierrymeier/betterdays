@@ -24,10 +24,11 @@ class UsersController < ApplicationController
   def update
     # @user is defined in correct_user that is being called before_action
     if @user.update_attributes(user_params)
-      flash[:success] = "Update successful!"
+      flash[:success] = "Kaboom, your account has been updated"
       render 'edit'
     else
-      render 'edit', notice: "Update not successful"
+      flash[:danger] = "Uh oh, we could not update your account. Try again."
+      render 'edit'
     end
   end
   

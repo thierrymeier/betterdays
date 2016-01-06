@@ -36,11 +36,27 @@ a {
     letter-spacing: 0.5px;
 }
 
+.alert-success {
+    background-image: none;
+    background-repeat: none;
+    border-color: none;
+    background-color: #77C522;
+    color: white;
+}
+
 .alert-info {
     background-image: none;
     background-repeat: none;
     border-color: none;
     background-color: #4194F6;
+    color: white;
+}
+
+.alert-danger {
+    background-image: none;
+    background-repeat: none;
+    border-color: none;
+    background-color: #D0021B;
     color: white;
 }
 

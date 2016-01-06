@@ -3,7 +3,8 @@ class EntriesController < ApplicationController
 
   def index
     if current_user.nil?
-      redirect_to login_path, notice: 'Please log in!'
+      flash[:info] = "Whoops, you need to log in first."
+      redirect_to login_path
     else
       @entries = current_user.entries
       @entry = Entry.new
@@ -12,7 +13,8 @@ class EntriesController < ApplicationController
   
   def show
     if current_user.entries.find_by_id(params[:id]).nil?
-      redirect_to root_path, notice: 'You can not do this'
+      flash[:success] = "Hey, you're not allowed to do that."
+      redirect_to root_path
     else
       @entry = current_user.entries.find(params[:id]) if current_user.entries.find_by_id(params[:id])
     end
@@ -22,9 +24,11 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
     @entry.user_id = current_user.id
     if @entry.save
-      redirect_to root_path, notice: 'Entry was successfully created.'
+      flash[:success] = "Awesome, your new entry has been filed in the books!"
+      redirect_to root_path
     else
-      redirect_to root_path, notice: 'Entry not saved. Write more than 50 characters. Sorry for not saving what you wrote, hihi.'
+      flash[:danger] = "Come on, write at least 50 letters."
+      redirect_to root_path
     end
   end
 
@@ -34,18 +38,19 @@ class EntriesController < ApplicationController
   
   def update
     @entry = Entry.find(params[:id])
-    respond_to do |y|
     if @entry.update_attributes(entry_params)
-      y.html { redirect_to @entry, notice: 'Entry was succcessfully updated.' }
+      flash[:success] = "Yay, your entry has been updated"
+      redirect_to @entry
     else
-      y.html { render :edit, notice: "Couldn't update entry" }
+      flash[:danger] = "Oh no, we could not update your entry. Try again."
+      render 'edit'
     end
-  end
   end
   
   def destroy
     @entry = Entry.find(params[:id]).destroy
-    redirect_to root_path, notice: 'Successfully deleted'
+    flash[:success] = "BOOOOOM, your entry has been destroyed"
+    redirect_to root_path
   end
   
   def search

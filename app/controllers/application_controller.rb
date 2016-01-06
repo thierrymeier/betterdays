@@ -4,7 +4,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   def authorize
-    redirect_to login_path, alert: 'Not authorized' if current_user.nil?
+    if current_user.nil?
+      flash[:info] = "Whoops, you need to log in to do that."
+      redirect_to login_path
+    end
   end
 
   
