@@ -54,11 +54,7 @@ class EntriesController < ApplicationController
   end
   
   def search
-    if params[:search]
-      @search_entries = @entries.search(params[:search]).order("created_at DESC")
-    else
-      @entries = Entry.all.order("created_at DESC")
-    end
+    @search_entries = @entries.search(params[:search])
   end
   
   private

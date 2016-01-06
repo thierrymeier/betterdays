@@ -5,7 +5,7 @@ class Entry < ActiveRecord::Base
   
   
   def self.search(search)
-    where("content LIKE :pat", :pat => "%#{search}%")
+    where("LOWER(content) LIKE LOWER(:pat) or to_char(created_at, 'YYYY month Month DD') LIKE :pat", :pat => "%#{search}%")
     # where("content LIKE :pat OR to_char(created_at, 'YYYY month Month DD') LIKE :pat", :pat => "%#{search}%") <-- with timestamp search
   end
   

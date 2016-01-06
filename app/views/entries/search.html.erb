@@ -12,8 +12,14 @@
     <h1><%= "No results found :(" if @entries.empty? %></h1>
     <% @search_entries.each do |entry| %>
         <div class="search-result col-xs-12">
-            <h2><%= link_to entry.created_at.strftime("%A, %d of %B %Y"), entry %></h2>
-            <p><%= highlight(excerpt(entry.content, params[:search], radius: 145).gsub('<br />', ''), params[:search]) %></p>
+            
+            <% if entry.content.include?(params[:search]) %>
+                <h2><%= link_to entry.created_at.strftime("%A, %d of %B %Y"), entry %></h2>
+                <p><%= highlight(excerpt(entry.content, params[:search], radius: 145).gsub('<br />', ''), params[:search])  %></p>
+            <% else %>
+                <h2><%= link_to highlight(entry.created_at.strftime("%A, %d of %B %Y"), params[:search]), entry %></h2>
+                <p><%= entry.content.gsub('<br />', '').truncate(290)%></p>
+            <% end %>
         </div>    
     <% end %>
 </div>
