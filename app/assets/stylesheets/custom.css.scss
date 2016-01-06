@@ -18,6 +18,7 @@ body {
 
 a {
     text-decoration: underline;
+    transition: all .2s ease-in-out;
 }
 
 .alert {
@@ -82,6 +83,12 @@ input.btn.btn-primary {
     height: 50px;
     font-family: "neuzeit-grotesk";
     padding: 0px 20px 0px 20px;
+    transition: all .2s ease-in-out;
+}
+
+.btn:focus, .btn:hover {
+    background-color: #1A1A1A;
+    /***transform: scale(1.03);***/
 }
 
 /*** Typography ***/
@@ -105,6 +112,11 @@ h1.done {
 
 .navbar-nav a {
     color: #D8D8D8;
+}
+
+.nav>li>a:hover {
+    background-color: white;
+    text-decoration: underline;
 }
 
 /*** Logo ***/
@@ -309,6 +321,11 @@ h1.done {
     margin-left: 8px;
     font-weight: 400;
 }
+
+/*** .single-entry-actions a:hover {
+    text-decoration: underline;
+    color: #000000;
+} ***/
 
 .single-entry-actions a.delete {
     color: #D0021B;
