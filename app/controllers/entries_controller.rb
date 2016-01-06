@@ -22,8 +22,8 @@ class EntriesController < ApplicationController
       flash[:success] = "Awesome, your new entry has been filed in the books!"
       redirect_to root_path
     else
-      flash[:danger] = "Come on, write at least 50 letters."
-      redirect_to root_path
+      flash.now[:danger] = "Come on, your life is more interesting than that. Write a bit more!"
+      render 'index'
     end
   end
 
@@ -42,7 +42,7 @@ class EntriesController < ApplicationController
       flash[:success] = "Yay, your entry has been updated"
       redirect_to @entry
     else
-      flash[:danger] = "Oh no, we could not update your entry. Try again."
+      flash.now[:danger] = "Oh no, we could not update your entry. Try again."
       render 'edit'
     end
   end
