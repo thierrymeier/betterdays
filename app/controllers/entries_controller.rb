@@ -1,22 +1,17 @@
 class EntriesController < ApplicationController
   before_action :authorize
+  before_action :correct_user
 
   def index
-    if current_user.nil?
-      flash[:info] = "Whoops, you need to log in first."
-      redirect_to login_path
-    else
-      @entries = current_user.entries
-      @entry = Entry.new
-    end
+    @entry = Entry.new
   end
   
   def show
-    if current_user.entries.find_by_id(params[:id]).nil?
-      flash[:success] = "Hey, you're not allowed to do that."
+    if @entries.find_by_id(params[:id]).nil?
+      flash[:danger] = "Hey, you're not allowed to do that."
       redirect_to root_path
     else
-      @entry = current_user.entries.find(params[:id]) if current_user.entries.find_by_id(params[:id])
+      @entry = @entries.find(params[:id])
     end
   end
   
@@ -33,11 +28,16 @@ class EntriesController < ApplicationController
   end
 
   def edit
-    @entry = Entry.find(params[:id])
+    if @entries.find_by_id(params[:id]).nil?
+      flash[:danger] = "Hey, you're not allowed to do that."
+      redirect_to root_path
+    else
+      @entry = @entries.find(params[:id])
+    end
   end
   
   def update
-    @entry = Entry.find(params[:id])
+    @entry = @entries.find(params[:id])
     if @entry.update_attributes(entry_params)
       flash[:success] = "Yay, your entry has been updated"
       redirect_to @entry
@@ -48,14 +48,14 @@ class EntriesController < ApplicationController
   end
   
   def destroy
-    @entry = Entry.find(params[:id]).destroy
+    @entry = @entries.find(params[:id]).destroy
     flash[:success] = "BOOOOOM, your entry has been destroyed"
     redirect_to root_path
   end
   
   def search
     if params[:search]
-      @entries = current_user.entries.search(params[:search]).order("created_at DESC")
+      @search_entries = @entries.search(params[:search]).order("created_at DESC")
     else
       @entries = Entry.all.order("created_at DESC")
     end
@@ -65,6 +65,11 @@ class EntriesController < ApplicationController
   
     def entry_params
       params.require(:entry).permit(:content, :location, :user_id)
+    end
+    
+    def correct_user
+      @entries = current_user.entries
+      redirect_to root_url if @entries.nil?
     end
     
 end

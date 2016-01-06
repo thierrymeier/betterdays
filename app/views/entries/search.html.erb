@@ -10,7 +10,7 @@
 
 <div class="row search-result-list text-center">
     <h1><%= "No results found :(" if @entries.empty? %></h1>
-    <% @entries.each do |entry| %>
+    <% @search_entries.each do |entry| %>
         <div class="search-result col-xs-12">
             <h2><%= link_to entry.created_at.strftime("%A, %d of %B %Y"), entry %></h2>
             <p><%= highlight(excerpt(entry.content, params[:search], radius: 145).gsub('<br />', ''), params[:search]) %></p>
