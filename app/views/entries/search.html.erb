@@ -13,7 +13,7 @@
     <% @entries.each do |entry| %>
         <div class="search-result col-xs-12">
             <h2><%= link_to entry.created_at.strftime("%A, %d of %B %Y"), entry %></h2>
-            <p><%= highlight(excerpt(entry.content, params[:search], radius: 160).gsub('<br />', ''), params[:search]) %></p>
+            <p><%= highlight(excerpt(entry.content, params[:search], radius: 145).gsub('<br />', ''), params[:search]) %></p>
         </div>    
     <% end %>
 </div>
