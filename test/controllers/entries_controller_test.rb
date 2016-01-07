@@ -42,7 +42,7 @@ class EntriesControllerTest < ActionController::TestCase
   test "should redirect create action on entry with id that doesn't belong to you" do
     log_in_as(@user)
     assert_no_difference 'Entry.count' do
-      post :create, entry: { content: "Lorem Ipsum" * 50, id: @other_user }
+      post :create, entry: { content: "Lorem Ipsum" * 50, id: 380377255 }
     end
   end
 end
