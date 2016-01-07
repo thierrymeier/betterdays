@@ -6,6 +6,7 @@ body {
     color: #000000
 }
 
+
 /*** General ***/
 
 .container {
@@ -466,4 +467,39 @@ h1.done {
 
 .login-footer2 {
     left: -50%;
+}
+
+
+#error_explanation {
+  color: #D0021B;
+  font-family: "neuzeit-grotesk";
+  font-weight: 400;
+  ul {
+    background-color: #D0021B;
+    color: white;
+    margin: 0 auto;
+    padding: 20px;
+    width: 46%;
+    border-radius: 4px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    li {
+        list-style-type: none;
+        margin-bottom: 8px;
+        
+        &:last-child {
+            margin-bottom: 0px;
+        }
+    }
+  }
+}
+
+.field_with_errors {
+  input.text {
+    border-color: #D0021B;
+  }
+}
+
+.form-group label {
+    margin-bottom: 7px;
 }
