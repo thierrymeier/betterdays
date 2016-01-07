@@ -1,3 +1,7 @@
 thierry:
-  email: tmeier@facebook.com
+  email: test@example.com
+  password_digest: <%= User.digest('foobar') %>
+  
+steve:
+  email: steve@example.com
   password_digest: <%= User.digest('password') %>

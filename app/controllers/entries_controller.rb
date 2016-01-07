@@ -48,9 +48,14 @@ class EntriesController < ApplicationController
   end
   
   def destroy
-    @entry = @entries.find(params[:id]).destroy
-    flash[:success] = "BOOOOOM, your entry has been destroyed"
-    redirect_to root_path
+    if @entries.find_by_id(params[:id]).nil?
+      flash[:danger] = "Hey, you're not allowed to do that."
+      redirect_to root_path
+    else
+      @entry = @entries.find(params[:id]).destroy
+      flash[:success] = "BOOOOOM, your entry has been destroyed"
+      redirect_to root_path
+    end
   end
   
   def search

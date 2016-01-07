@@ -1,7 +1,14 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  content: MyText
-
+  content: Small batch tilde messenger bag, single-origin coffee mlkshk vegan everyday carry biodiesel scenester vinyl locavore paleo flannel. Truffaut disrupt schlitz DIY. Umami artisan taxidermy cronut tacos bitters migas waistcoat, viral butcher yuccie direct trade. 
+  created_at: <%= 10.minutes.ago %>
+  user: thierry
+  
 two:
-  content: MyText
+  content: Poutine hoodie humblebrag banh mi, roof party everyday carry mumblecore heirloom. Etsy wolf moon disrupt tilde iPhone, distillery kale chips crucifix helvetica gentrify hashtag chicharrones. Jean shorts migas bicycle rights chambray mustache brooklyn.
+  created_at: <%= 20.minutes.ago %>
+  user: steve
+  
+most_recent:
+  content: Ugh pop-up direct trade plaid, roof party health goth put a bird on it single-origin coffee kogi typewriter locavore master cleanse stumptown DIY.
+  created_at: <%= Time.zone.now %>
+  user: thierry

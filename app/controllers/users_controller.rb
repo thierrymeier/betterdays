@@ -35,11 +35,8 @@ class UsersController < ApplicationController
   end
   
   def correct_user
-    @user = User.find(params[:id])
-    if (@user == current_user) == false
-      flash[:danger] = "Not authorized"
-      redirect_to root_path
-    end
+      @user = User.find(params[:id])
+      redirect_to(root_url) unless @user == current_user
   end
   
   private
