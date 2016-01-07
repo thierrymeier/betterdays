@@ -62,6 +62,14 @@ a {
     color: white;
 }
 
+.alert-trial {
+    background-image: none;
+    background-repeat: none;
+    border-color: none;
+    background-color: #D0021B;
+    color: #4A90E2;
+}
+
 .circle {
     background-color: #D8D8D8;
     height: 6px;
@@ -270,7 +278,6 @@ h1.done {
     padding: 2px 4px 2px 4px;
     font-weight: 700;
     background-color: #FFFDE0;
-    z-index: -1;
 }
 
 /*** Single Entry ***/

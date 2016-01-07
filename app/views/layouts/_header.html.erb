@@ -1,3 +1,9 @@
+<% if @show_trial_alert %>
+  <% if current_user.created_at > 14.days.ago %>
+    <div class="alert alert-info">There are <%= (((current_user.created_at + 14.days) - Time.now)/60/60/24).round %> days remaining in your free trial.</div>
+  <% end %>
+<% end %>
+
 <% flash.each do |message_type, message| %>
   <div class="alert alert-<%= message_type %>"><%= message %></div>
 <% end %>

@@ -14,20 +14,22 @@ class UsersController < ApplicationController
       redirect_to root_path
     else
       render 'new'
+      flash.now[:danger] = "Hm, something went wrong. Try again."
     end
   end
   
   def edit
     # @user is defined in correct_user that is being called before_action
+    @show_trial_alert = true
   end
   
   def update
     # @user is defined in correct_user that is being called before_action
     if @user.update_attributes(user_params)
-      flash[:success] = "Kaboom, your account has been updated"
+      flash.now[:success] = "Kaboom, your account has been updated"
       render 'edit'
     else
-      flash[:danger] = "Uh oh, we could not update your account. Try again."
+      flash.now[:danger] = "Uh oh, we could not update your account. Try again."
       render 'edit'
     end
   end
