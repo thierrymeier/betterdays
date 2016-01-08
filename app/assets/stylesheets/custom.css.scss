@@ -1,32 +1,50 @@
-/* Universal Styles */
+/* 1.0 Global Styles */
 
+/** 1.1 General **/
 a {
     text-decoration: underline;
     transition: all .2s ease-in-out;
+    color: #D9D9D9;
 }
 
-@media screen and (min-width: 768px) {
+p {
+    font-size: 18px;
+    line-height: 30px;
+}
 
 html {
     -webkit-font-smoothing: antialiased;
 }
 
 body {
-    color: #000000
+    color: #000000;
+    font-family: "neuzeit-grotesk";
+    font-weight: 400;
 }
 
-
-/*** General ***/
-
-.container {
-    width: 768px;
+.navbar-nav a {
+    color: #D8D8D8;
 }
 
-.container-show {
-    width: 860px;
+mark {
+    color: #000000;
+    padding: 2px 4px 2px 4px;
+    font-weight: 700;
+    background-color: #FFFDE0;
 }
 
+.checkbox label {
+    height: 0px;
+    font-size: 14px;
+    line-height: 24px;
+    margin-bottom: 10px;
+}
 
+li {
+    list-style-type: none;
+}
+
+/** 1.2 Alerts **/
 
 .alert {
     padding: 3px;
@@ -34,7 +52,6 @@ body {
     border-radius: 0px;
     border: none;
     font-size: 12px;
-    font-family: "neuzeit-grotesk";
     font-weight: 700;
     text-shadow: none;
     box-shadow: none;
@@ -76,14 +93,7 @@ body {
     color: #4A90E2;
 }
 
-.circle {
-    background-color: #D8D8D8;
-    height: 6px;
-    -moz-border-radius:3px;
-    -webkit-border-radius: 3px;
-    width: 6px;
-    margin: 68px auto 60px;
-}
+/** 1.3 Buttons **/
 
 input.btn.btn-primary {
     color: white;
@@ -96,97 +106,58 @@ input.btn.btn-primary {
     font-size: 18px;
     font-weight: 700;
     height: 50px;
-    font-family: "neuzeit-grotesk";
     padding: 0px 20px 0px 20px;
     transition: all .2s ease-in-out;
 }
 
 .btn:focus, .btn:hover {
     background-color: #1A1A1A;
-    /***transform: scale(1.03);***/
 }
 
-/*** Typography ***/
-h1 {
-    font-family: "neuzeit-grotesk";
-    font-size: 36px;
-    line-height: 44px;
+/** 1.4 Input Fields **/
+
+form {
+    margin-top: 38px;
+}
+
+.form-group {
+    margin-bottom: 21px;
+    &:last-child {
+        margin-bottom: 40px;
+    }
+}
+
+.form-group label {
+    font-size: 16px;
     font-weight: 700;
 }
 
-h1.done {
-    margin-bottom: -10px;
-}
-
-/*** Navigation ***/
-.navbar-nav {
-    font-family: "neuzeit-grotesk";
-    font-weight: 400;
-    font-size: 14px;
-}
-
-.navbar-nav a {
-    color: #D8D8D8;
-}
-
-.nav>li>a:hover {
-    background-color: white;
-    text-decoration: underline;
-}
-
-/*** Logo ***/
-
-.logo {
-    margin-top: 5px;
-}
-
-
-/*** Search Bar ***/
-.search {
-    margin-top: 16px;
-}
-
-.search input {
-    background: #FFFFFF;
-    border: 2px solid #EBEBEB;
+input.form-control {
     border-radius: 100px;
-    box-shadow: none;
-    height: 39px;
-    width: 346px;
-    display: inline;
-    font-size: 16px;
     color: #000000;
-    font-family: "neuzeit-grotesk";
-    font-weight: 400;
-    padding-top: 6px;
-    padding-left: 15px;
+    height: 39px;
     text-align: center;
-}
-
-.search input.active, .settings input.active {
-    border: 2px solid black;
-}
-
-.search.textarea:focus, .search input:focus, .settings input:focus {
-    border-color: #000000;
+    font-size: 16px;
+    border: 2px solid #EBEBEB;
     box-shadow: none;
+    width: 346px;
+    margin: 0 auto;
 }
 
-.search input::-webkit-input-placeholder {
+input.form-control::-webkit-input-placeholder, textarea.form-control::-webkit-input-placeholder {
     /* WebKit, Blink, Edge */
     color: #D8D8D8;
 }
 
-/*** New Entry ***/
-.compose {
-    margin-top: 40px;
+input.form-control:focus {
+    border: 2px solid black;
+    border-color: #000000;
+    box-shadow: none;
 }
 
 .compose textarea, .edit_entry textarea {
     font-size: 18px;
     color: #000000;
-    font-family: "neuzeit-grotesk";
-    font-weight: 400;
     border: none;
     box-shadow: none;
     text-align: center;
@@ -199,11 +170,6 @@ h1.done {
 
 .compose input.btn.btn-primary {
     margin-top: 23px;
-}
-
-.compose-textarea::-webkit-input-placeholder, .edit_entry::-webkit-input-placeholder {
-    /* WebKit, Blink, Edge */
-    color: #D8D8D8;
 }
 
 .edit_entry textarea.text {
@@ -219,10 +185,10 @@ h1.done {
     display: none;
 }
 
-/*** Entries ***/
+/** 1.5 Typography **/
 
-.entries {
-    margin-top: 60px;
+h1 {
+    font-weight: 700;
 }
 
 .entries a {
@@ -234,26 +200,117 @@ h1.done {
     text-decoration: underline;
 }
 
-.entries ul {
-    padding-left: 0px;
+.search-result-list a {
+    color: #000000;
+    text-decoration: none;
 }
 
-.entries li {
-    font-family: "neuzeit-grotesk";
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 34px;
-    list-style-type: none;
+.search-result-list p {
+    font-size: 16px;
+    color: #C0C0C0;
+    line-height: 28px;
 }
 
-/*** Search Results ***/
-.search-result-list {
+
+/** Mobile First **/
+
+ 
+h1 {
+     font-size: 24px;
+     line-height: 34px;
+}
+
+nav {
+    padding: 15px;
+}
+
+nav li {
+    display: inline;
+    margin-left: 18px;
+}
+
+.logo {
+    margin-top: 0px;
+}
+
+.search-form {
+    margin-top: 30px;
+}
+
+.compose {
     margin-top: 20px;
 }
 
+.compose form {
+    margin-top: 4px;
+}
+
+.entries {
+    margin-top: 40px;
+}
+
+.entries ul {
+    padding: 0px;
+}
+
+.entries li {
+    font-size: 18px;
+    line-height: 34px;
+}
+
+.single-entry-actions {
+    margin-top: 17px;
+    margin-bottom: -5px;
+}
+
+.single-entry-actions a {
+    font-size: 14px;
+    color: #DFDFDF;
+    margin-left: 8px;
+}
+
+.single-entry form {
+    margin-top: 0px;
+}
+
+.single-entry textarea {
+    line-height: 30px;
+}
+
+.single-entry .btn {
+    margin-top: 25px;
+    margin-bottom: 7px;
+}
+
+.single-entry-actions a.delete {
+    color: #D0021B;
+}
+
+.checkbox {
+    margin-top: 35px;
+}
+
+.settings .btn {
+    margin-top: 26px;
+}
+
+.footer {
+    font-size: 14px;
+    color: #BFBFBF;
+    line-height: 34px;
+    margin-top: 35px;
+    margin-bottom: 30px;
+}
+
+.footer a {
+    font-size: 14px;
+    color: #BFBFBF;
+    line-height: 34px;
+    text-decoration: none;
+    padding-left: 12px;
+}
+
 .search-result-list h2 {
-    font-family: "neuzeit-grotesk";
-    font-weight: 400;
     font-size: 18px;
     color: #000000;
     margin-bottom: 12px;
@@ -262,28 +319,87 @@ h1.done {
     line-height: 14px;
 }
 
-.search-result-list a {
-    color: #000000;
-    text-decoration: none;
+
+@media screen and (min-width: 768px) {
+
+.container {
+    width: 768px;
 }
 
-.search-result-list p {
-    font-family: "neuzeit-grotesk";
-    font-size: 16px;
-    color: #C0C0C0;
-    line-height: 28px;
-    font-weight: 400;
+.container-show {
+    width: 860px;
+}
+
+/*** Typography ***/
+h1 {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 700;
+}
+
+h1.done {
+    margin-bottom: -10px;
+}
+
+/*** Navigation ***/
+.navbar-nav {
+    font-size: 14px;
+}
+
+.nav>li>a:hover {
+    background-color: white;
+    text-decoration: underline;
+}
+
+/*** Logo ***/
+
+.logo {
+    margin-top: 8px;
+}
+
+
+/*** Search Bar ***/
+
+.search {
+    margin-top: 16px;
+}
+
+.search-form {
+    margin-top: 0px;
+}
+
+/*** New Entry ***/
+.compose {
+    margin-top: 40px;
+}
+
+
+/*** Entries ***/
+
+.entries {
+    margin-top: 60px;
+}
+
+.entries ul {
+    padding-left: 0px;
+}
+
+.entries li {
+    font-size: 18px;
+    line-height: 34px;
+}
+
+.new_entry {
+    margin-top: 0;
+}
+
+/*** Search Results ***/
+.search-result-list {
+    margin-top: 20px;
 }
 
 .search-result {
     margin-bottom: 23px;
-}
-
-.search-result mark {
-    color: #000000;
-    padding: 2px 4px 2px 4px;
-    font-weight: 700;
-    background-color: #FFFDE0;
 }
 
 /*** Single Entry ***/
@@ -299,26 +415,15 @@ h1.done {
     margin-bottom: 20px;
 }
 
-.single-entry-edit h1 {
-    margin-bottom: 17px;
-}
-
 .single-entry p {
-    font-family: "neuzeit-grotesk";
     font-size: 18px;
     color: #000000;
     line-height: 28px;
     margin-bottom: 28px;
-    font-weight: 400;
 }
 
 .single-entry p:last-child {
     margin-bottom: 0px;
-}
-
-.single-entry-edit .btn {
-    margin-top: 25px;
-    margin-bottom: 7px;
 }
 
 .single-entry-actions {
@@ -326,14 +431,13 @@ h1.done {
     padding-left: 96%;
     top: 17px;
     right: 22px;
+    margin-top: 0px;
 }
 
 .single-entry-actions a {
-    font-family: "neuzeit-grotesk";
     font-size: 14px;
-    color: #D8D8D8;
+    color: #000000;
     margin-left: 8px;
-    font-weight: 400;
 }
 
 /*** .single-entry-actions a:hover {
@@ -343,10 +447,6 @@ h1.done {
 
 .single-entry-actions a.delete {
     color: #D0021B;
-}
-
-.single-entry-actions-edit a {
-    color: #000000;
 }
 
 /*** Settings ***/
@@ -362,44 +462,6 @@ h1.done {
     margin-top: 26px;
 }
 
-.settings form, .login form, .signup form {
-    margin-top: 38px;
-}
-
-.settings .form-group, .login .form-group, .signup .form-group {
-    margin-bottom: 21px;
-}
-
-.settings .form-group:last-child, .login .form-group:last-child, .signup .form-group:last-child {
-    margin-bottom: 40px;
-}
-
-.settings label, .login label, .signup label {
-    font-size: 16px;
-    font-weight: 700;
-    font-family: "neuzeit-grotesk";
-}
-
-.settings input.text, .login input.text, .signup input.text {
-    background: #FFFFFF;
-    border: 2px solid #EBEBEB;
-    border-radius: 100px;
-    box-shadow: none;
-    height: 39px;
-    width: 346px;
-    display: inline;
-    font-size: 16px;
-    color: #000000;
-    font-family: "neuzeit-grotesk";
-    padding-top: 6px;
-    text-align: center;
-    font-weight: 400;
-}
-
-.settings input:focus {
-    border: 2px solid black;
-}
-
 .signup .btn {
     margin-top: 17px;
     margin-bottom: 20px;
@@ -409,18 +471,7 @@ h1.done {
     margin-top: 35px;
 }
 
-.checkbox label {
-    font-family: "neuzeit-grotesk";
-    font-weight: 400;
-    height: 0px;
-    font-size: 14px;
-    line-height: 24px;
-    margin-bottom: 10px;
-}
 
-.checkbox a {
-    color: #D9D9D9;
-}
 
 /*** Sign up and login ***/
 
@@ -446,25 +497,7 @@ h1.done {
 
 
 /*** Footer ***/
-.footer {
-    font-family: "neuzeit-grotesk";
-    font-weight: 400;
-    font-size: 14px;
-    color: #BFBFBF;
-    line-height: 34px;
-    margin-top: 35px;
-    margin-bottom: 30px;
-}
 
-.footer a {
-    font-family: "neuzeit-grotesk";
-    font-weight: 400;
-    font-size: 14px;
-    color: #BFBFBF;
-    line-height: 34px;
-    text-decoration: none;
-    padding-left: 12px;
-}
 
 .footer-show {
     padding-left: 50px;
@@ -485,8 +518,6 @@ h1.done {
 
 #error_explanation {
   color: #D0021B;
-  font-family: "neuzeit-grotesk";
-  font-weight: 400;
   ul {
     background-color: #D0021B;
     color: white;
@@ -497,7 +528,6 @@ h1.done {
     font-weight: 700;
     margin-bottom: 30px;
     li {
-        list-style-type: none;
         margin-bottom: 8px;
         
         &:last-child {
