@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :sessions
+  resources :charges
   resources :users, except: [:index, :show, :destroy]
   resources :entries do
     collection do

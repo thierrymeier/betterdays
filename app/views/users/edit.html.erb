@@ -1,5 +1,26 @@
 <div class="row">
   <div class="settings col-xs-12 text-center">
+    <div class = "upgrade" >
+      <%= form_tag charges_path do %>
+  <article>
+    <% if flash[:error].present? %>
+      <div id="error_explanation">
+        <p><%= flash[:error] %></p>
+      </div>
+    <% end %>
+    <label class="amount">
+      <span>Amount: $5.00</span>
+    </label>
+  </article>
+
+  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+          data-description="A month's subscription"
+          data-amount="500"
+          data-locale="auto"></script>
+<% end %>
+    </div>
+
 
     <%= form_for @user do |f| %>
         <%= render 'shared/error_messages' %>
