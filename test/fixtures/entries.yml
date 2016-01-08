@@ -7,6 +7,16 @@ two:
   content: Poutine hoodie humblebrag banh mi, roof party everyday carry mumblecore heirloom. Etsy wolf moon disrupt tilde iPhone, distillery kale chips crucifix helvetica gentrify hashtag chicharrones. Jean shorts migas bicycle rights chambray mustache brooklyn.
   created_at: <%= 20.minutes.ago %>
   user: steve
+ 
+three:
+  content: Poutine hoodiee humblebrag banh mi, roof party everyday carry mumblecore heirloom. Etsy wolf moon disrupt tilde iPhone, distillery kale chips crucifix helvetica gentrify hashtag chicharrones. Jean shorts migas bicycle rights chambray mustache brooklyn.
+  created_at: <%= 30.minutes.ago %>
+  user: thierry 
+  
+four:
+  content: eeee hoodiee humblebrag banh mi, roof party everyday carry mumblecore heirloom. Etsy wolf moon disrupt tilde iPhone, distillery kale chips crucifix helvetica gentrify hashtag chicharrones. Jean shorts migas bicycle rights chambray mustache brooklyn.
+  created_at: <%= 40.minutes.ago %>
+  user: steve 
   
 most_recent:
   content: Ugh pop-up direct trade plaid, roof party health goth put a bird on it single-origin coffee kogi typewriter locavore master cleanse stumptown DIY.

@@ -16,7 +16,7 @@ class EntriesController < ApplicationController
   end
   
   def create
-    @entry = current_user.entries.build(entry_params)
+    @entry = @entries.build(entry_params)
     if @entry.save
       flash[:success] = "Awesome, your new entry has been filed in the books!"
       redirect_to root_path
@@ -64,12 +64,12 @@ class EntriesController < ApplicationController
   private
   
     def entry_params
-      params.require(:entry).permit(:content, :location, :user_id, :created_at, :updated_at)
+      params.require(:entry).permit(:content)
     end
     
     def correct_user
       @entries = current_user.entries
-      redirect_to root_url if @entries.nil?
+      redirect_to root_url if @entries.empty?
     end
     
 end
