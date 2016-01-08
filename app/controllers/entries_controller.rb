@@ -69,7 +69,7 @@ class EntriesController < ApplicationController
     
     def correct_user
       @entries = current_user.entries
-      redirect_to root_url if @entries.empty?
+      redirect_to root_url if @entries.nil?
     end
     
 end

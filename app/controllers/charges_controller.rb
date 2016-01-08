@@ -9,20 +9,20 @@ def create
 
   customer = Stripe::Customer.create(
     :email => params[:stripeEmail],
-    :source  => params[:stripeToken]
+    :source  => params[:stripeToken],
+    :plan => 'basic'
   )
 
   charge = Stripe::Charge.create(
     :customer    => customer.id,
     :amount      => @amount,
     :description => 'Rails Stripe customer',
-    :plan        => 'basic',
     :currency    => 'usd'
   )
 
 rescue Stripe::CardError => e
   flash[:error] = e.message
-  redirect_to new_charge_path
+  redirect_to root_path
 end
   
 end
