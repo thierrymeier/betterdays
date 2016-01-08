@@ -1,23 +1,32 @@
 <script type="text/javascript">
     $(document).ready(function() {
+        $('textarea').autosize();
+          $('.textarea').focus(function(){
+    		$('.logo').fadeTo(1200, 0.2);
+    		$('.footer').fadeTo(1200, 0.2);
+    		$('.search').fadeTo(1200, 0.3);
+    		$('.entries').fadeTo(1200, 0.05);
+    		$('nav').fadeTo(1200, 0.2);
+       });
    
-   $('textarea').autosize();
-   $('.textarea').focus(function(){
-		$('.logo').fadeTo(1200, 0.2);
-		$('.footer').fadeTo(1200, 0.2);
-		$('.search').fadeTo(1200, 0.3);
-		$('.entries').fadeTo(1200, 0.05);
-		$('nav').fadeTo(1200, 0.2);
-   });
+       $('.textarea').focusout(function(){
+            $('.logo').fadeTo(600, 1);
+            $('.footer').fadeTo(600, 1);
+    	    $('.search').fadeTo(600, 1);
+    		$('.entries').fadeTo(600, 1);
+    		$('nav').fadeTo(600, 1);
+       });
    
-   $('.textarea').focusout(function(){
-        $('.logo').fadeTo(600, 1);
-        $('.footer').fadeTo(600, 1);
-	    $('.search').fadeTo(600, 1);
-		$('.entries').fadeTo(600, 1);
-		$('nav').fadeTo(600, 1);
-   });
-   
+       if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+         $(function() {
+            $(".textarea").on('focus', function() {
+                var position = $(".compose h1").offset().top - 30;
+                $("HTML, BODY").animate({
+                    scrollTop: position
+                }, 1000);
+            });
+        });
+        }
  });
 </script>
 
