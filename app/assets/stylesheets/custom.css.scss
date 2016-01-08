@@ -1,4 +1,14 @@
-/*** Global Styles ***/
+.container {
+    @media screen and (min-width: 768px) {
+        width: 768px;
+    }
+}
+
+.container-show {
+    @media screen and (min-width: 768px) {
+        width: 860px;
+    }
+}
 
 a {
     text-decoration: underline;
@@ -9,6 +19,10 @@ a {
 p {
     font-size: 18px;
     line-height: 30px;
+    
+    @media screen and (min-width: 768px) {
+        line-height: 28px;
+    }
 }
 
 html {
@@ -21,8 +35,19 @@ body {
     font-weight: 400;
 }
 
-.navbar-nav a {
-    color: #D8D8D8;
+h1 {
+     font-size: 24px;
+     line-height: 34px;
+     font-weight: 700;
+     
+     @media screen and (min-width: 768px) {
+            font-size: 36px;
+            line-height: 44px;
+            
+             .done {
+                    margin-bottom: -10px;
+                }
+         }
 }
 
 mark {
@@ -123,6 +148,7 @@ form {
     label {
         font-size: 16px;
         font-weight: 700;
+        margin-bottom: 7px;
     }
 }
 
@@ -138,6 +164,10 @@ input.form-control {
     margin: 0 auto;
     -moz-box-shadow:    none;
     -webkit-box-shadow: none;
+    
+    @media screen and (min-width: 768px) {
+        width: 346px;
+    }
 
     &::-webkit-input-placeholder {
         color: #D8D8D8;
@@ -154,6 +184,12 @@ input.form-control:focus {
     border: 2px solid black;
     border-color: #000000;
     box-shadow: none;
+}
+
+.field_with_errors {
+  input.text {
+    border-color: #D0021B;
+  }
 }
 
 textarea.form-control {
@@ -174,126 +210,90 @@ textarea.form-control {
     
 }
 
-
-h1 {
+#error_explanation {
+  color: #D0021B;
+  ul {
+    background-color: #D0021B;
+    color: white;
+    margin: 0 auto;
+    padding: 20px;
+    width: 46%;
+    border-radius: 4px;
     font-weight: 700;
+    margin-bottom: 30px;
+    
+    li {
+        margin-bottom: 8px;
+        
+        &:last-child {
+            margin-bottom: 0px;
+        }
+    }
+  }
 }
 
-/*** MOBILE_FIRST STARTS HERE ***/
- 
-h1 {
-     font-size: 24px;
-     line-height: 34px;
-}
+/******************************************************************************/
+/******************************************************************************/
+/******************************************************************************/
+
+/*Navigation*******************************************************************/
 
 nav {
     padding: 15px;
+    
+    li {
+        display: inline;
+        margin-left: 18px;
+    }
+    
 }
 
-nav li {
-    display: inline;
-    margin-left: 18px;
-}
+/*Logo*************************************************************************/
 
 .logo {
+    
     margin-top: 0px;
+    
+    @media screen and (min-width: 768px) {
+        margin-top: 8px;
+    }
     
     .login {
         margin-top: 21%;
-    }
-}
-
-.search-form {
-    margin-top: 30px;
-}
-
-.compose {
-    margin-top: 20px;
-}
-
-.compose form {
-    margin-top: 4px;
-}
-
-.entries {
-    margin-top: 40px;
-    
-    ul {
-        padding: 0px;
-    }
-    
-    li {
-        font-size: 18px;
-        line-height: 34px;
-    }
-    
-    a {
-        color: #000000;
-        text-decoration: none;
         
-        &:hover {
-            text-decoration: underline;
+        @media screen and (min-width: 768px) {
+            margin-top: 80px;
         }
     }
 }
 
-.single-entry-actions {
-    margin-top: 17px;
-    margin-bottom: -5px;
+/*Search **********************************************************************/
+
+.search {
     
-    a {
-        font-size: 14px;
-        color: #DFDFDF;
-        margin-left: 8px; 
-    }
+    margin-top: 11px;
     
-    a.delete {
-        color: #D0021B;
+    @media screen and (min-width: 768px) {
+        margin-top: 16px;
     }
 }
 
-
-.single-entry {
-    
-    form {
-        margin-top: 0px;
-    }
-    
-    textarea {
-        line-height: 30px;
-    }
-    
-    .btn {
-        margin-top: 25px;
-        margin-bottom: 7px;
-    }
+.search-form {
+    margin-top: 0px;
 }
 
-.checkbox {
-    margin-top: 35px;
-}
-
-.settings .btn {
-    margin-top: 26px;
-}
-
-.footer {
-    font-size: 14px;
-    color: #BFBFBF;
-    line-height: 34px;
-    margin-top: 35px;
-    margin-bottom: 30px;
+.search-result {
     
-    a {
-        font-size: 14px;
-        color: #BFBFBF;
-        line-height: 34px;
-        text-decoration: none;
-        padding-left: 12px;
+    @media screen and (min-width: 768px) {
+        margin-bottom: 23px;
     }
 }
 
 .search-result-list {
+    
+    @media screen and (min-width: 768px) {
+        margin-top: 20px;
+    }
     
     a {
         color: #000000;
@@ -317,7 +317,14 @@ nav li {
     
 }
 
+/*Compose Form*****************************************************************/
+
 .compose {
+    margin-top: 10px;
+    
+        @media screen and (min-width: 768px) {
+            margin-top: 40px;
+        }
     
         .btn.btn-primary {
             margin-top: 23px;
@@ -327,6 +334,128 @@ nav li {
             border: none;
             box-shadow: none;
         }
+        
+        form {
+            margin-top: 4px;
+        }
+}
+
+.new_entry {
+    margin-top: 0;
+}
+
+
+/*Entries**********************************************************************/
+
+.entries {
+    margin-top: 40px;
+    
+    @media screen and (min-width: 768px) {
+        margin-top: 60px;
+    }
+    
+    ul {
+        padding: 0px;
+        
+        @media screen and (min-width: 768px) {
+            padding-left: 0px;
+        }
+    }
+    
+    li {
+        font-size: 18px;
+        line-height: 34px;
+        
+        @media screen and (min-width: 768px) {
+            font-size: 18px;
+            line-height: 34px;
+        }
+    }
+    
+    a {
+        color: #000000;
+        text-decoration: none;
+        
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+
+/*Single Entries***************************************************************/
+
+.single-entry {
+    
+    @media screen and (min-width: 768px) {
+        background: #FFFFFF;
+        box-shadow: 0px -2px 4px 0px rgba(229,229,229,0.50), 0px 2px 4px 0px rgba(228,228,228,0.50);
+        border-radius: 8px;
+        padding: 29px 50px 50px 50px;
+        margin-top: 35px;
+        
+        h1 {
+            margin-bottom: 20px;
+        }
+        
+        p {
+            font-size: 18px;
+            color: #000000;
+            line-height: 28px;
+            margin-bottom: 28px;
+            
+            &:last-child {
+                margin-bottom: 0px;
+            }
+        }
+    }
+    
+    form {
+        margin-top: 0px;
+    }
+    
+    textarea {
+        line-height: 30px;
+    }
+    
+    .btn {
+        margin-top: 25px;
+        margin-bottom: 7px;
+    }
+}
+
+.single-entry-actions {
+    margin-top: 17px;
+    margin-bottom: -5px;
+    
+    @media screen and (min-width: 768px) {
+        position: absolute;
+        padding-left: 96%;
+        top: 17px;
+        right: 22px;
+        margin-top: 0px;
+        
+        a {
+            font-size: 14px;
+            color: #000000;
+            margin-left: 8px;
+            
+            &.delete {
+                color: #D0021B;
+            }
+        }
+        
+    }
+    
+    a {
+        font-size: 14px;
+        color: #DFDFDF;
+        margin-left: 8px; 
+    }
+    
+    a.delete {
+        color: #D0021B;
+    }
 }
 
 .edit_entry {
@@ -341,6 +470,24 @@ nav li {
     }
 }
 
+/*Footer***********************************************************************/
+
+.footer {
+    font-size: 14px;
+    color: #BFBFBF;
+    line-height: 34px;
+    margin-top: 35px;
+    margin-bottom: 30px;
+    
+    a {
+        font-size: 14px;
+        color: #BFBFBF;
+        line-height: 34px;
+        text-decoration: none;
+        padding-left: 12px;
+    }
+}
+
 .login-footer {
     position: absolute;
     bottom: 5px;
@@ -352,149 +499,12 @@ nav li {
     left: -50%;
 }
 
-.signup .btn {
-    margin-top: 17px;
-    margin-bottom: 20px;
+/*Settings*********************************************************************/
+
+.settings .btn {
+    margin-top: 26px;
 }
 
-@media screen and (min-width: 768px) {
-
-p {
-    line-height: 28px;
-}
-
-.container {
-    width: 768px;
-}
-
-.container-show {
-    width: 860px;
-}
-
-input.form-control {
-    width: 346px;
-}
-
-/*** Typography ***/
-h1 {
-    font-size: 36px;
-    line-height: 44px;
-    font-weight: 700;
-    
-    .done {
-        margin-bottom: -10px;
-    }
-}
-
-/*** Navigation ***/
-.navbar-nav {
-    font-size: 14px;
-}
-
-.nav>li>a:hover {
-    background-color: white;
-    text-decoration: underline;
-}
-
-/*** Logo ***/
-
-.logo {
-    margin-top: 8px;
-}
-
-
-/*** Search Bar ***/
-
-.search {
-    margin-top: 16px;
-}
-
-.search-form {
-    margin-top: 0px;
-}
-
-/*** New Entry ***/
-.compose {
-    margin-top: 40px;
-}
-
-
-/*** Entries ***/
-
-.entries {
-    margin-top: 60px;
-}
-
-.entries ul {
-    padding-left: 0px;
-}
-
-.entries li {
-    font-size: 18px;
-    line-height: 34px;
-}
-
-.new_entry {
-    margin-top: 0;
-}
-
-/*** Search Results ***/
-.search-result-list {
-    margin-top: 20px;
-}
-
-.search-result {
-    margin-bottom: 23px;
-}
-
-/*** Single Entry ***/
-.single-entry {
-    background: #FFFFFF;
-    box-shadow: 0px -2px 4px 0px rgba(229,229,229,0.50), 0px 2px 4px 0px rgba(228,228,228,0.50);
-    border-radius: 8px;
-    padding: 29px 50px 50px 50px;
-    margin-top: 35px;
-}
-
-.single-entry h1 {
-    margin-bottom: 20px;
-}
-
-.single-entry p {
-    font-size: 18px;
-    color: #000000;
-    line-height: 28px;
-    margin-bottom: 28px;
-}
-
-.single-entry p:last-child {
-    margin-bottom: 0px;
-}
-
-.single-entry-actions {
-    position: absolute;
-    padding-left: 96%;
-    top: 17px;
-    right: 22px;
-    margin-top: 0px;
-}
-
-.single-entry-actions a {
-    font-size: 14px;
-    color: #000000;
-    margin-left: 8px;
-}
-
-/*** .single-entry-actions a:hover {
-    text-decoration: underline;
-    color: #000000;
-} ***/
-
-.single-entry-actions a.delete {
-    color: #D0021B;
-}
-
-/*** Settings ***/
 .settings h1, .login h1, .signup h1 {
     margin-top: 58px;
 }
@@ -507,13 +517,12 @@ h1 {
     margin-top: 26px;
 }
 
-.checkbox {
-    margin-top: 35px;
+/*Login + Signup***************************************************************/
+
+.signup .btn {
+    margin-top: 17px;
+    margin-bottom: 20px;
 }
-
-
-
-/*** Sign up and login ***/
 
 .login {
     margin-top: 8px;
@@ -522,7 +531,6 @@ h1 {
         margin-top: 80px;
     }
 }
-
 
 .login form {
     margin-top: 28px;
@@ -537,46 +545,6 @@ h1 {
 }
 
 
-/*** Footer ***/
-
-
-.footer-show {
-    padding-left: 50px;
-    padding-right: 50px;
-}
-
-
-
-
-#error_explanation {
-  color: #D0021B;
-  ul {
-    background-color: #D0021B;
-    color: white;
-    margin: 0 auto;
-    padding: 20px;
-    width: 46%;
-    border-radius: 4px;
-    font-weight: 700;
-    margin-bottom: 30px;
-    li {
-        margin-bottom: 8px;
-        
-        &:last-child {
-            margin-bottom: 0px;
-        }
-    }
-  }
-}
-
-.field_with_errors {
-  input.text {
-    border-color: #D0021B;
-  }
-}
-
-.form-group label {
-    margin-bottom: 7px;
-}
-
+.checkbox {
+    margin-top: 35px;
 }
