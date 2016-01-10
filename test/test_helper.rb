@@ -19,6 +19,10 @@ class ActiveSupport::TestCase
     end
   end
   
+  def is_logged_in?
+    !session[:user_id].nil?
+  end
+  
   private
 
     # Returns true inside an integration test.

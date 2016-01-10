@@ -9,8 +9,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:user_id] = @user.id
-      flash[:success] = "You're signed up – yay!"
+      @user.send_activation_email
+      # session[:user_id] = @user.id – Here, we automatically logged someone in.
+      # flash[:success] = "You're signed up – yay!"
+      flash[:info] = "Check out your inbox to activate your account."
       redirect_to root_path
     else
       render 'new'

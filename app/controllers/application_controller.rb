@@ -5,7 +5,6 @@ class ApplicationController < ActionController::Base
   
   def authorize
     if current_user.nil?
-      flash[:info] = "Whoops, you need to log in to do that."
       redirect_to login_path
     end
   end

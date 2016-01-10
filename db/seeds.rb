@@ -8,7 +8,9 @@
 
 User.create!(email: "test@example.com",
              password:              "foobar",
-             password_confirmation: "foobar")
+             password_confirmation: "foobar",
+             activated: true,
+             activated_at: Time.zone.now)
 
 24.times do |n|
   content = Faker::Hipster.paragraphs(6).join("<br /> <br />")
