@@ -1,10 +1,37 @@
-<h1>Sample App</h1>
-
-<p>Hi <%= @user.email %>,</p>
+<p>Hello there!</p>
 
 <p>
-Welcome to the Sample App! Click on the link below to activate your account:
+  This is Thierry from Better Days. Thank you so much for joining us. We are excited 
+  to help you develop the habit of journaling or offer a better way to journal.
 </p>
 
-<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
-                                                    email: @user.email) %>
+<p>
+  We think it is great that you have decided to start journaling. If you ask us,
+  it is one of the most beneficial habits you can implement in your life.
+</p>
+
+<p>
+  Here are a few reasons why journaling is great:
+</p>
+
+<ol>
+  <li><strong>It Optimizes Your Creative Potential </strong></li>
+  <li><strong>It Creates A Springboard For Daily Recovery</strong></li>
+  <li><strong>It Generates Clarity And Congruence</strong></li>
+  <li><strong>It Clears Your Emotions</strong></li>
+  <li><strong>It Engrains Your Learning</strong></li>
+  <li><strong>It Increases Your Gratitude</strong></li>
+  <li><strong>It Unfolds The Writer In You</strong></li>
+</ol>
+
+<p>
+  Besides that, unwinding after a busy day with a cup of tea while you write your
+  journal is simply great.
+</p>
+
+<p>Please activate your account so you can get started: <%= link_to "Activate", 
+edit_account_activation_url(@user.activation_token, email: @user.email) %> </p>
+
+<p>If you run in to any issues or have questions, please hit us up right away!</p>
+
+<p>Thanks, <br /> Thierry from Better Days</p>
