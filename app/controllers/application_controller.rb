@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
       redirect_to login_path
     end
   end
-
   
   private
   def current_user

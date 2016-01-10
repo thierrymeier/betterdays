@@ -72,4 +72,10 @@ class EntriesController < ApplicationController
       redirect_to root_url if @entries.nil?
     end
     
+    helper_method :has_journaled_today?
+    
+    def has_journaled_today?
+      @entries.last.try(:created_at).try(:strftime, '%d %B %Y') == Time.now.strftime("%d %B %Y")
+    end
+    
 end

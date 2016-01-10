@@ -23,7 +23,7 @@
                 var position = $(".compose h1").offset().top - 30;
                 $("HTML, BODY").animate({
                     scrollTop: position
-                }, 1000);
+                }, 300);
             });
         });
         }
@@ -42,7 +42,7 @@
 
 <div class="row compose">
     <div class="compose-entry col-xs-12 text-center">
-        <% if @entries.any? && @entries.last.try(:created_at).try(:strftime, '%d %B %Y') == Time.now.strftime("%d %B %Y") %>
+        <% if @entries.any? && has_journaled_today? %>
             <h1 class="done">Done! You’ve written today’s journal!</h1>
         <% else %>
             <h1><%= Time.now.strftime("%A, %d of %B %Y") %></h1>
