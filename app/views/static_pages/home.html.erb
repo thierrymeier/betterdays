@@ -1,2 +1,98 @@
-<h1>StaticPages#home</h1>
-<p>Find me in app/views/static_pages/home.html.erb</p>
+<div class="row hero text-center">
+    <div class="col-sm-12">
+
+      <h1 class="hero">Dear Diary ,</h1>
+      <p>I am grateful for your <strong>clutter-free writing experience.</strong>
+        Thank you for helping me journal everyday and keeping it <strong>safe.</strong>
+      </p>
+      <div class="signature">
+        <span>Yours truly.</span>
+      </div>
+
+      <%= link_to "Start journaling today", signup_path, class: 'btn btn-primary' %>
+
+    </div>
+</div> <!-- /hero -->
+
+<div class="row features text-center">
+  <div class="col-sm-12">
+    <div class="feature-block feature-emoji col-sm-3">
+      <%= image_tag("icon-emoji.png", size: "58x58") %>
+      <span>Emoji Support</span>
+    </div>
+
+    <div class="feature-block feature-emoji col-sm-3">
+      <%= image_tag("icon-search.png", size: "58x58") %>
+      <span>Fulltext Search</span>
+    </div>
+
+    <div class="feature-block feature-backups col-sm-3">
+      <%= image_tag("icon-backups.png", size: "58x58") %>
+      <span>Daily Backups</span>
+    </div>
+
+    <div class="feature-block feature-reminders col-sm-3">
+      <%= image_tag("icon-reminders.png", size: "48x56") %>
+      <span>Reminders</span>
+    </div>
+  </div>
+</div>
+
+<div class="row why-journal section text-center">
+    <div class="col-sm-12">
+      <h1>Why should I journal? Is this 1972?</h1>
+      <ul>
+        <li><a href="#">Why Keeping a Daily Journal Could Change Your Life</a></li>
+        <li><a href="#">Why You Should Keep A Journal (and How to Start Yours)</a></li>
+        <li><a href="#">26 Reasons Why I Keep a Journal (And Why You Should, Too)</a></li>
+        <li><a href="#">8 Reasons Keeping a Journal Can Help You Reach Your Goals</a></li>
+        <li><a href="#">Keeping a Journal Now Will Change Your Life Later. Here's Why</a></li>
+      </ul>
+  </div>
+</div> <!-- /why-journal -->
+
+<div class="row benefits text-center">
+  <div class="feature-block col-sm-3">
+    <div class="circle pull-right"></div>
+    <%= image_tag("icon-creativity.png", size: "55x60") %>
+    <span>Fuel Creativity</span>
+  </div>
+
+  <div class="feature-block col-sm-3">
+    <div class="circle pull-right"></div>
+    <%= image_tag("icon-gratitude.png", size: "70x61") %>
+    <span>Increase Gratitude</span>
+  </div>
+
+  <div class="feature-block col-sm-3">
+    <div class="circle pull-right"></div>
+    <%= image_tag("icon-learning.png", size: "61x61") %>
+    <span>Better Learning</span>
+  </div>
+
+  <div class="feature-block col-sm-3">
+    <div class="circle pull-right"></div>
+    <%= image_tag("icon-gratitude.png", size: "70x61") %>
+    <span>Decrease Stress</span>
+  </div>
+
+  <div class="feature-block col-sm-3">
+    <div class="circle pull-right"></div>
+    <%= image_tag("icon-learning.png", size: "61x61") %>
+    <span>More mindfulness</span>
+  </div>
+
+  <div class="feature-block col-sm-3">
+    <div class="circle pull-right"></div>
+    <%= image_tag("icon-creativity.png", size: "55x60") %>
+    <span>Less anxiety</span>
+  </div>
+</div><!-- /benefits -->
+
+<div class="row call-to-action text-center">
+<h1>Pick Up the Most Beneficial Habit Today</h1>
+<%= link_to "Start journaling today", signup_path, class: 'btn btn-primary' %>
+</div>
+
+<%= render 'layouts/landing_footer' %>
+

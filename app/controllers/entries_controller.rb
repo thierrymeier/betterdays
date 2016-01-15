@@ -78,4 +78,10 @@ class EntriesController < ApplicationController
       @entries.last.try(:created_at).try(:strftime, '%d %B %Y') == Time.now.strftime("%d %B %Y")
     end
     
+    helper_method :has_journaled_yesterday?
+    
+    def has_journaled_yesterday?
+      @entries.last.try(:created_at).try(:strftime, '%d %B %>') >= 1.day.ago.strftime("%d %B %Y")
+    end
+    
 end

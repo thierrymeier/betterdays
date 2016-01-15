@@ -1,3 +1,279 @@
 // Place all the styles related to the StaticPages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.hero .btn-primary, .call-to-action .btn-primary {
+    background-color: black;
+    height: 50px;
+    font-size: 18px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 12px;
+    border: none;
+    color: white;
+    border-radius: 2px;
+}
+
+.hero a.btn-primary, .call-to-action a.btn-primary {
+  text-decoration: none;
+}
+
+.container.landing {
+  @media screen and (min-width: 768px) {
+    width: 900px;
+  }
+}
+
+/*Login*/
+.btn-login {
+  background-color: black;
+  color: white;
+  font-size: 13px;
+  margin: 5px;
+  padding-top: 5px;
+  height: 30px;
+  border-radius: 2px;
+}
+
+a.btn-login {
+  text-decoration: none;
+  line-height: 17px;
+  font-weight: 700;
+}
+
+
+/*Logo*/
+.logo-landing {
+  margin-top: -10px;
+}
+
+/*Hero*/
+
+.hero {
+  margin-top: 20px;
+  padding: 0 15px 0 15px;
+  
+  @media screen and (min-width: 768px) {
+    margin-top: 40px;
+  }
+  
+  p {
+    font-weight: 300;
+  }
+  
+  .signature {
+    margin-top: 28px;
+  }
+  
+}
+
+h1.hero {
+  font-size: 44px;
+  line-height: 44px;
+  font-family: 'Indie Flower';
+  font-weight: 400;
+  color: #000000;
+
+  @media screen and (min-width: 768px) {
+    font-size: 100px;
+    line-height: 100px;
+  }
+}
+
+.hero p {
+  font-size: 24px;
+  line-height: 36px;
+  
+  @media screen and (min-width: 768px) {
+    font-size: 28px;
+    color: #000000;
+    line-height: 47px;
+    margin-top: 12px;
+  }
+}
+
+.hero span {
+  font-family: 'Indie Flower';
+  font-size: 32px;
+}
+
+.hero .btn-primary {
+  margin-top: 8%;
+}
+
+
+/*Features*/
+.features {
+  margin-top: 30px;
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: inline-block;
+    margin-top: 140px;
+  }
+}
+
+.feature-block {
+  width: 180px;
+  height: 180px;
+  box-shadow: 0px -2px 4px 0px rgba(229,229,229,0.50), 0px 2px 4px 0px rgba(228,228,228,0.50);
+  border-radius: 4px;
+  padding: 0;
+  margin: 0 auto;
+  margin-bottom: 80px;
+  
+  @media screen and (min-width: 768px) {
+    margin-right: 50px;
+    margin-bottom: 0px;
+  }
+}
+
+.features .feature-block:nth-child(4) {
+  
+  @media screen and (min-width: 768px) {
+    margin-right: 0px;
+  }
+}
+
+.feature-block img {
+  display: block;
+  margin: auto;
+  margin-top: 45px;
+  margin-bottom: 12px;
+}
+
+.feature-block span {
+  font-size: 18px;
+  color: #000000;
+}
+
+/*Section*/
+
+.section p {
+  font-size: 20px;
+}
+
+/*Why Journal*/
+
+.why-journal {
+  display: none;
+  
+  @media screen and (min-width: 768px) {
+    display: inherit;
+  }
+  
+  h1 {
+    font-size: 32px;
+    padding: 0px 20px 0px 20px;
+  }
+  
+  ul {
+    margin-top: 20px;
+    list-style-type: none;
+    
+    @media screen and (min-width: 768px) {
+      margin-top: 58px;
+    }
+  }
+
+  li {
+    line-height: 22px;
+    font-size: 18px;
+    margin-bottom: 14px;
+    text-decoration: underline;
+    
+    @media screen and (min-width: 768px) {
+      font-size: 24px;
+      line-height: 34px; 
+    }
+  }
+  
+  a {
+    color: #000000;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    
+    &:hover {
+      color: #EEEEEE;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-top: 117px;
+    
+    h1 {
+      font-size: 48px;
+    }
+    
+    a {
+      font-size: 24px;
+    }
+  }
+  
+}
+
+/*Benefits*/
+.benefits {
+  margin-top: 110px;
+  margin-left: 14%;
+  display: none;
+  
+  @media screen and (min-width: 768px) {
+    display: inherit;
+  }
+}
+
+.benefits .feature-block {
+  margin-right: 65px;
+  margin-bottom: 60px;
+  color: red;
+}
+
+.benefits .circle {
+  width: 10px;
+	height: 10px;
+	background: #7ED321;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+  margin: 10px;
+  box-shadow: 0px 1px 4px 0px #B1EE6D, 0px -1px 4px 0px #B1EE6D, 1px 0px 4px 0px #B1EE6D, -1px 0px 4px 0px #B1EE6D;
+}
+
+/*Call-to-action*/
+.call-to-action {
+  margin-top: 55px;
+  margin-bottom: 100px;
+  display: none;
+  
+  @media screen and (min-width: 768px) {
+    display: inherit;
+  }
+  
+   h1 {
+    font-size: 48px;
+  }
+}
+
+.call-to-action .btn-primary {
+  margin-top: 40px;
+}
+
+/*Footer*/
+.footer-landing {
+  display: none;
+  
+  @media screen and (min-width: 768px) {
+    margin-top: 30px;
+    border-top: 1px solid #F5F5F5;
+    padding-top: 24px;
+    padding-bottom: 15px;
+  }
+  
+}
+
+.footer-landing img {
+  position: relative;
+  top: -5px;
+}
