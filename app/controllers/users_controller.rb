@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       # session[:user_id] = @user.id – Here, we automatically logged someone in.
       # flash[:success] = "You're signed up – yay!"
       flash[:info] = "Check out your inbox to activate your account."
-      redirect_to root_path
+      redirect_to login_path
     else
       render 'new'
       flash.now[:danger] = "Hm, something went wrong. Try again."

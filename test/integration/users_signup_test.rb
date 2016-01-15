@@ -25,7 +25,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                 password: "password",
                                 password_confirmation: "password" }
     end
-    assert_redirected_to root_path
+    assert_redirected_to login_path
   end
   
   test "valid signup information with account activation" do
@@ -52,7 +52,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     get edit_account_activation_path(user.activation_token, email: user.email)
     assert user.reload.activated?
     follow_redirect!
-    assert_template root_path
+    assert_template 'entries/index'
     assert is_logged_in?
   end
 end

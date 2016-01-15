@@ -6,7 +6,7 @@ class AccountActivationsController < ApplicationController
           user.activate
           session[:user_id] = user.id
           flash[:success] = "Account activated"
-          redirect_to root_path
+          redirect_to entries_path
       else
           flash[:danger] = "Invalid activation link"
           redirect_to root_path
