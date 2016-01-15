@@ -1,10 +1,12 @@
 thierry:
+  first_name: Thierry
   email: test@example.com
   password_digest: <%= User.digest('foobar') %>
   activated: true
   activated_at: <%= Time.zone.now %>
   
 steve:
+  first_name: Steve
   email: steve@example.com
   password_digest: <%= User.digest('password') %>
   activated: true

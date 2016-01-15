@@ -52,7 +52,7 @@
             <h1><%= Time.now.strftime("%A, %d of %B %Y") %></h1>
             <%= form_for(@entry) do |f| %>
             
-                <%= f.text_area :content, class: 'form-control compose-textarea textarea', autocomplete: "off", placeholder: "Hey you, tell me about your day.." %> 
+                <%= f.text_area :content, class: 'form-control compose-textarea textarea', autocomplete: "off", placeholder: "Hey #{current_user.first_name}, tell me about your day.." %> 
                 
                 <%= f.submit "Submit", class: "btn btn-primary" %>
         

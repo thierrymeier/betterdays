@@ -21,7 +21,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   test "valid signup information should add a new user" do
     get signup_path
     assert_difference 'User.count', 1, 'User should be created' do
-      post  users_path, user: { email: "megatoll@cool.com",
+      post  users_path, user: { first_name: "Thierry", 
+                                email: "megatoll@cool.com",
                                 password: "password",
                                 password_confirmation: "password" }
     end
@@ -31,7 +32,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   test "valid signup information with account activation" do
     get signup_path
     assert_difference 'User.count', 1 do
-      post users_path, user: { name:  "Example User",
+      post users_path, user: { first_name:  "Example User",
                                email: "user@example.com",
                                password:              "password",
                                password_confirmation: "password" }

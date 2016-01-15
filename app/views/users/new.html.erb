@@ -7,10 +7,18 @@
         <%= render 'shared/error_messages' %>
         <div class="form-group">
           <div class ="form-label">
+            <%= f.label :first_name, 'Your First Name' %>
+          </div>
+          <div class = "form-input">
+            <%= f.text_field :first_name, class: 'form-control text' %>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class ="form-label">
             <%= f.label :email %>
           </div>
           <div class = "form-input">
-            <%= f.email_field :email, class: 'form-control text' %>
+            <%= f.text_field :email, class: 'form-control text' %>
           </div>
         </div>
         <div class="form-group">
@@ -19,14 +27,6 @@
           </div>
           <div class = "form-input">
             <%= f.password_field :password, class: 'form-control text' %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class ="form-label">
-            <%= f.label :password_confirmation %>
-          </div>
-          <div class = "form-input">
-            <%= f.password_field :password_confirmation, class: 'form-control text' %>
           </div>
         </div>
         <%= f.submit "Sign Up", class: 'btn btn-primary' %>

@@ -8,8 +8,8 @@ class User < ActiveRecord::Base
   validates :email, presence: true, length: { maximum: 250 }, uniqueness: { 
                     case_sensitive: false },format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
-  
+  validates :first_name, presence: true
+
   # Returns true if the given token matches the digest.
   def authenticated?(attribute, token)
     digest = send("#{attribute}_digest")
