@@ -14,5 +14,6 @@ Rails.application.routes.draw do
       post :search
     end
   end
+  mount_griddler
   
 end

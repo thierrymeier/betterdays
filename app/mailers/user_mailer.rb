@@ -1,4 +1,5 @@
 class UserMailer < ApplicationMailer
+  default :from => 'holler@betterdaysapp.com'
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -14,4 +15,10 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: "Password reset"
   end
+  
+  def reminder(user)
+    @user = user
+    mail to: user.email, subject: "You didn't journal yesterday. Want to add a post?"
+  end
+  
 end

@@ -70,6 +70,11 @@ GEM
     formatador (0.2.5)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    griddler (1.2.1)
+      htmlentities
+      rails (>= 3.2.0)
+    griddler-sendgrid (0.0.1)
+      griddler
     guard (2.13.0)
       formatador (>= 0.2.4)
       listen (>= 2.7, <= 4.0)
@@ -82,6 +87,7 @@ GEM
     guard-minitest (2.3.1)
       guard (~> 2.0)
       minitest (>= 3.0)
+    htmlentities (4.3.4)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -222,6 +228,8 @@ DEPENDENCIES
   byebug (= 3.4.0)
   coffee-rails (= 4.1.0)
   faker (= 1.6.1)
+  griddler
+  griddler-sendgrid
   guard-minitest (= 2.3.1)
   jbuilder (= 2.2.3)
   jquery-rails (= 4.0.3)
