@@ -39,6 +39,10 @@ a.btn-login {
   text-decoration: none;
   line-height: 17px;
   font-weight: 700;
+  
+  &:hover {
+    color: #FFFFFF;
+  }
 }
 
 
@@ -173,6 +177,7 @@ h1.hero {
 
 .why-journal {
   display: none;
+  -webkit-transition: all .4s ease-in-out;
   
   @media screen and (min-width: 768px) {
     display: inherit;
@@ -211,7 +216,7 @@ h1.hero {
     line-height: 22px;
     
     &:hover {
-      color: #EEEEEE;
+    color: #4D4D4D;
     }
   }
 
