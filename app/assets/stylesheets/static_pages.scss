@@ -68,6 +68,7 @@ a.btn-login {
   .signature {
     margin-top: 13px;
     height: 40px;
+    margin-bottom: 20px;
     
     @media screen and (min-width: 768px) {
       margin-top: 28px;
@@ -84,6 +85,7 @@ h1.hero {
   font-weight: 400;
   color: #000000;
   height: 44px;
+  margin-top: 30px;
 
   @media screen and (min-width: 768px) {
     font-size: 100px;
@@ -95,7 +97,7 @@ h1.hero {
 .hero p {
   font-size: 24px;
   line-height: 36px;
-  height: 180px;
+  height: 144px;
   
   @media screen and (min-width: 768px) {
     font-size: 28px;
