@@ -18,7 +18,7 @@ class UserMailer < ApplicationMailer
   
   def reminder(user)
     @user = user
-    mail to: user.email, subject: "You didn't journal yesterday. Want to add a post?"
+    mail to: user.email, subject: "You didn't journal in three days – need help?"
   end
   
 end

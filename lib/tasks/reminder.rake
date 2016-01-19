@@ -1,13 +1,12 @@
 namespace :mail do
-  desc "Send reminder if user hasn't journaled that day"
+  desc "Send reminder if a user hasn't journaled in three days"
   
-  task :daily_reminder => :environment do
-
+  task :reminder => :environment do
     User.all.each do |user|
-      if user.entries.last.created_at.strftime("%A, %d of %B %Y") < Time.now.strftime("%A, %d of %B %Y")
-        UserMail.reminder(user).deliver
+      if !user.entries.empty? && user.entries.last.created_at.strftime("%A, %d of %B %Y") == 3.days.ago.strftime("%A, %d of %B %Y")
+        @user.send_reminder_email
       end
     end
-    
   end
+  
 end
