@@ -3,7 +3,7 @@ namespace :mail do
   
   task :reminder => :environment do
     User.all.each do |user|
-      if !user.entries.empty? && user.entries.last.created_at < 3.days.ago
+      if !user.entries.empty? && user.entries.first.created_at < 3.days.ago
         UserMailer.reminder(user).deliver_now
       end
     end
