@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default :from => 'holler@betterdaysapp.com'
+  default :from => '"Thierry from Better Days" <holler@betterdaysapp.com>'
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
