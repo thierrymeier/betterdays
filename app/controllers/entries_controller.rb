@@ -78,7 +78,7 @@ class EntriesController < ApplicationController
     helper_method :has_journaled_today?
     
     def has_journaled_today?
-      @entries.last.try(:created_at).try(:strftime, '%d %B %Y') == Time.now.strftime("%d %B %Y")
+      @entries.first.try(:created_at).try(:strftime, '%d %B %Y') == Time.now.strftime("%d %B %Y")
     end
     
     helper_method :has_journaled_yesterday?
