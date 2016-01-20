@@ -12,12 +12,15 @@ class EntriesController < ApplicationController
       redirect_to root_path
     else
       @entry = @entries.find(params[:id])
+      current_user.reminder_count = 10
     end
   end
   
   def create
     @entry = @entries.build(entry_params)
+    @user = User.find(session[:user_id])
     if @entry.save
+      current_user.update_attribute(:reminder_count, 0)
       flash[:success] = "Awesome, your new entry has been filed in the books!"
       redirect_to entries_path
     else
