@@ -18,3 +18,16 @@ namespace :misc do
   end
   
 end
+
+namespace :misc do
+  desc "Find out who hasn't written in three days"
+  
+  task :nopost3days => :environment do
+    User.all.each do |user|
+      if user.reminder_count == 3
+        puts "#{user.id}: #{user.first_name} <#{user.email}>"
+      end
+    end
+  end
+  
+end
