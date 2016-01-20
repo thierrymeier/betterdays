@@ -1,37 +1,45 @@
-<p>Hello there!</p>
+<p>Hello <%= @user.first_name %>!</p>
 
 <p>
-  This is Thierry from Better Days. Thank you so much for joining us. We are excited 
-  to help you develop the habit of journaling or offer a better way to journal.
+  This is Thierry from Better Days. Thank you so much for joining. I am excited 
+  to get journaling together. 
 </p>
 
 <p>
-  We think it is great that you have decided to start journaling. If you ask us,
-  it is one of the most beneficial habits you can implement in your life.
+  I think it is great that you have decided to start journaling! If you ask me, it
+  is one of the most beneficial habits you can implement in your life.
 </p>
 
 <p>
-  Here are a few reasons why journaling is great:
+  Let me point out why:
 </p>
 
 <ol>
-  <li><strong>It Optimizes Your Creative Potential </strong></li>
-  <li><strong>It Creates A Springboard For Daily Recovery</strong></li>
-  <li><strong>It Generates Clarity And Congruence</strong></li>
-  <li><strong>It Clears Your Emotions</strong></li>
-  <li><strong>It Engrains Your Learning</strong></li>
-  <li><strong>It Increases Your Gratitude</strong></li>
-  <li><strong>It Unfolds The Writer In You</strong></li>
+  <li><strong>..it forces you to live consciously</strong></li>
+  <li><strong>..it enhances your creativity by creating something on a daily basis.</strong></li>
+  <li><strong>..it generates clarity and congruence</strong></li>
+  <li><strong>..it clears and calms your emotions</strong></li>
+  <li><strong>..it increases your gratitude</strong></li>
+  <li><strong>..it unfolds the writer in you by writing every day</strong></li>
 </ol>
 
 <p>
-  Besides that, unwinding after a busy day with a cup of tea while you write your
-  journal is simply great.
+  Unwinding after a busy day and sorting your thoughts and bringing them down to
+  paper has been so valuable to me.
 </p>
 
-<p>Please activate your account so you can get started: <%= link_to "Activate", 
+<p>
+  Ultimately, you'll feel more in touch with yourself, your feelings, your goals 
+  and ambitions.
+</p>
+
+<p>
+  Socrates said that the unexamined life is not worth living. I fully agree.
+</p>
+
+<p>Please activate your account so you can get started right away: <%= link_to "Activate", 
 edit_account_activation_url(@user.activation_token, email: @user.email) %> </p>
 
-<p>If you run in to any issues or have questions, please hit us up right away!</p>
+<p>I'll check-in with you personally in a few days to check on your progress! :)</p>
 
-<p>Thanks, <br /> Thierry from Better Days</p>
+<p>I'm excited!<br /> Thierry from Better Days</p>
