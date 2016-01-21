@@ -1,6 +1,6 @@
 Griddler.configure do |config|
-  config.processor_class = EmailProcessor # CommentViaEmail
-  config.processor_method = :process # :create_comment (A method on CommentViaEmail)
+  config.email_service = :sendgrid
+  config.processor_class = EmailProcessor
+  config.processor_method = :process
   config.reply_delimiter = ''
-  config.email_service = :sendgrid # :cloudmailin, :postmark, :mandrill, :mailgun
 end
