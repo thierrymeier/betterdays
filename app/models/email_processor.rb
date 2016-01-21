@@ -4,7 +4,7 @@ class EmailProcessor
   end
   
   def process
-    user = User.find_by_email(@email.from[:email])
+    user = User.where(email: email).first
     user.entries.create!(
       content: @email.body
     )
