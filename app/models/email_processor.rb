@@ -5,7 +5,7 @@ class EmailProcessor
   
   def process
     user = User.find_by_email(@email.from[:email])
-    user.entries.create!(content: @email.body).gsub('<br>', '') if !has_journaled_today?
+    user.entries.create!(content: @email.body) if !has_journaled_today?
   end
   
   def has_journaled_today?

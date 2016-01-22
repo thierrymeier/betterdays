@@ -6,7 +6,7 @@
     </div>
     <h1><%= @entry.created_at.strftime("%A, %d of %B") %></h1>
     <p>
-      <%= @entry.content.gsub("\n", "<br />").html_safe %>
+      <%= @entry.content.html_safe %>
     </p>
 
   </div>
