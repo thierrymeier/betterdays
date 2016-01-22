@@ -461,8 +461,13 @@ nav {
 
 .edit_entry {
     
+    textarea {
+        padding: 0;
+    }
+    
     textarea.text {
-        margin-top: -3px;
+        margin-top: 0px;
+        line-height: 28px;
     }
     
     textarea:focus {

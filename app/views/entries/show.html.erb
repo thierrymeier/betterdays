@@ -5,9 +5,9 @@
         <%= link_to "Close", root_path %>
     </div>
     <h1><%= @entry.created_at.strftime("%A, %d of %B") %></h1>
-    <p>
-      <%= @entry.content.gsub("\n", "<br />").html_safe %>
-    </p>
+    
+    <%= simple_format(@entry.content) %>
+    
 
   </div>
 </div>
