@@ -50,7 +50,7 @@
         <% if @entries.any? && has_journaled_today? %>
             <h1 class="done">Done! You’ve written today’s journal!</h1>
         <% else %>
-            <h1><%= Time.now.strftime("%A, %d of %B %Y") %></h1>
+            <h1><%= Time.now.strftime("%A, %d of %B") %></h1>
             <%= form_for(@entry) do |f| %>
             
                 <%= f.text_area :content, class: 'form-control compose-textarea textarea', autocomplete: "off", placeholder: "Hey #{current_user.first_name}, tell me about your day.." %> 

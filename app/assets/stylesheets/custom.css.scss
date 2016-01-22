@@ -41,7 +41,7 @@ p {
 }
 
 h1 {
-     font-size: 24px;
+     font-size: 32px;
      line-height: 34px;
      font-weight: 700;
      
@@ -130,9 +130,14 @@ input.btn.btn-primary {
     border-radius: 2px;
     font-size: 18px;
     font-weight: 700;
-    height: 50px;
-    padding: 0px 20px 0px 20px;
+    height: 60px;
+    padding: 0px 25px 0px 25px;
     transition: all .2s ease-in-out;
+    
+    @media screen and (min-width:768px) {
+        height: 50px;
+        padding: 0px 20px 0px 20px;
+    }
 }
 
 .btn:focus, .btn:hover {
@@ -181,6 +186,7 @@ input.form-control {
     
     @media screen and (min-width: 768px) {
         width: 346px;
+        font-size: 16px;
     }
 
     &::-webkit-input-placeholder {
@@ -207,19 +213,24 @@ input.form-control:focus {
 }
 
 textarea.form-control {
-    font-size: 18px;
+    font-size: 22px;
     color: #000000;
     border: none;
     box-shadow: none;
     text-align: center;
     margin-top: 15px;
     resize: none;
-    height: 28px;
+    height: 34px;
     /*** height: 208px; ***/
-    line-height: 28px;
+    line-height: 36px;
     
     &::-webkit-input-placeholder {
         color: #D8D8D8;
+    }
+    
+    @media screen and (min-width: 768px) {
+        font-size: 18px;
+        line-height: 28px;
     }
     
 }
@@ -261,7 +272,6 @@ nav {
 }
 
 .logo {
-    
     margin-top: 0px;
     
     @media screen and (min-width: 768px) {
@@ -326,7 +336,7 @@ nav {
 }
 
 .compose {
-    margin-top: 10px;
+    margin-top: 25px;
     
         @media screen and (min-width: 768px) {
             margin-top: 40px;
@@ -352,7 +362,7 @@ nav {
 }
 
 .entries {
-    margin-top: 40px;
+    margin-top: 25px;
     
     @media screen and (min-width: 768px) {
         margin-top: 38px;
@@ -367,8 +377,8 @@ nav {
     }
     
     li {
-        font-size: 18px;
-        line-height: 34px;
+        font-size: 22px;
+        line-height: 44px;
         
         @media screen and (min-width: 768px) {
             font-size: 18px;
@@ -387,6 +397,11 @@ nav {
 }
 
 .single-entry {
+    
+    p {
+        font-size: 22px;
+        line-height: 36px;
+    }
     
     @media screen and (min-width: 768px) {
         background: #FFFFFF;
@@ -426,8 +441,14 @@ nav {
 }
 
 .single-entry-actions {
-    margin-top: 17px;
-    margin-bottom: -5px;
+    margin-top: 22px;
+    margin-bottom: 30px;
+    
+    a {
+        font-size: 20px;
+        color: #DFDFDF;
+        margin-left: 24px; 
+    }
     
     @media screen and (min-width: 768px) {
         position: absolute;
@@ -448,11 +469,7 @@ nav {
         
     }
     
-    a {
-        font-size: 14px;
-        color: #DFDFDF;
-        margin-left: 8px; 
-    }
+    
     
     a.delete {
         color: #D0021B;
@@ -466,13 +483,27 @@ nav {
     }
     
     textarea.text {
+        line-height: 36px;
+        font-size: 22px;
+        
+        @media screen and (min-width: 768px) {
+        font-size: 18px;
         line-height: 28px;
+        
+        }    
     }
     
     textarea:focus {
         border: none;
         box-shadow: none;
     }
+        
+        textarea {
+            font-size: 22px;
+            line-height: 36px;
+        }
+        
+    
 }
 
 .footer {
