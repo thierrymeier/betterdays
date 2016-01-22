@@ -37,7 +37,7 @@ class UsersController < ApplicationController
   end
   
   def correct_user
-      @user = User.find(params[:id])
+      @user = User.find User.decrypt_id(params[:id])
       redirect_to(root_url) unless @user == current_user
   end
   

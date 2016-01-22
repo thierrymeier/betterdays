@@ -1,19 +1,15 @@
 class EntriesController < ApplicationController
   before_action :authorize
   before_action :correct_user
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
     @entry = Entry.new
   end
   
   def show
-    if @entries.find_by_id(params[:id]).nil?
-      flash[:danger] = "Hey, you're not allowed to do that."
-      redirect_to root_path
-    else
-      @entry = @entries.find(params[:id])
-      current_user.reminder_count = 10
-    end
+    @entry = @entries.find Entry.decrypt_id(params[:id])
+    current_user.reminder_count = 10
   end
   
   def create
@@ -30,16 +26,11 @@ class EntriesController < ApplicationController
   end
 
   def edit
-    if @entries.find_by_id(params[:id]).nil?
-      flash[:danger] = "Hey, you're not allowed to do that."
-      redirect_to root_path
-    else
-      @entry = @entries.find(params[:id])
-    end
+    @entry = @entries.find Entry.decrypt_id(params[:id])
   end
   
   def update
-    @entry = @entries.find(params[:id])
+    @entry = @entries.find Entry.decrypt_id(params[:id])
     if @entry.update_attributes(entry_params)
       flash[:success] = "Yay, your entry has been updated"
       redirect_to @entry
@@ -50,14 +41,10 @@ class EntriesController < ApplicationController
   end
   
   def destroy
-    if @entries.find_by_id(params[:id]).nil?
-      flash[:danger] = "Hey, you're not allowed to do that."
-      redirect_to root_path
-    else
-      @entry = @entries.find(params[:id]).destroy
-      flash[:success] = "BOOOOOM, your entry has been destroyed"
-      redirect_to root_path
-    end
+    @entry = @entries.find Entry.decrypt_id(params[:id])
+    @entry.destroy
+    flash[:success] = "BOOOOOM, your entry has been destroyed"
+    redirect_to root_path
   end
   
   def search
@@ -65,6 +52,11 @@ class EntriesController < ApplicationController
   end
   
   private
+  
+    def record_not_found
+      flash[:danger] = "Hey, you're not allowed to do that."
+      redirect_to root_path
+    end
   
     def entry_params
       params.require(:entry).permit(:content)
