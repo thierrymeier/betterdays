@@ -9,6 +9,7 @@ class EmailProcessor
   end
   
   def has_journaled_today?
+    user = User.find_by_email(@email.from[:email])
     user.entries.first.try(:created_at).try(:strftime, '%d %B %Y') == Time.now.strftime("%d %B %Y")
   end
 end
