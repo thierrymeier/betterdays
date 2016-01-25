@@ -3,8 +3,10 @@
     <div class="alert alert-info">There are <%= (((current_user.created_at + 14.days) - Time.now)/60/60/24).round %> days remaining in your free trial.</div>
   <% end %>
 <% end %>
-<% if current_user.created_at < 14.days.ago %>
-  <div class="alert alert-danger">Oh snap! Your trial period has expired. We would love you to <a href="#">upgrade</a> your account.</div>
+<% if @show_subscription_alert %>
+  <% if current_user.created_at < 14.days.ago && !is_subscribed? %>
+    <div class="alert alert-danger">Oh snap! Your trial period has expired. We would love you to <%= link_to "subscribe", new_subscription_path %> your account.</div>
+  <% end %>
 <% end %>
 
 <% flash.each do |message_type, message| %>
@@ -26,9 +28,8 @@
   </nav>
 </div>
 <div class="container">
-
-          <div class="row logo">
-              <div class="logo col-xs-12 text-center">
-                  <%= link_to image_tag("logo-betterdays.png", size: "177x85"), entries_path %>
-              </div>
-          </div> <!-- end logo -->
+  <div class="row logo">
+      <div class="logo col-xs-12 text-center">
+          <%= link_to image_tag("logo-betterdays.png", size: "177x85"), entries_path %>
+      </div>
+  </div> <!-- end logo -->

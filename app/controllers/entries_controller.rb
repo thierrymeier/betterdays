@@ -4,6 +4,7 @@ class EntriesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
+    @show_subscription_alert = true
     @entry = Entry.new
   end
   

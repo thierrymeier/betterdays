@@ -1,12 +1,12 @@
 class User < ActiveRecord::Base
-  attr_accessor :activation_token, :reset_token
+  attr_accessor :activation_token, :reset_token, :new_subscription
   before_save :downcase_email
   before_create :create_activation_digest
   has_many :entries, dependent: :destroy
   has_secure_password
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 250 }, uniqueness: { 
-                    case_sensitive: false },format: { with: VALID_EMAIL_REGEX }
+                    case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true, length: { minimum: 6 }
   validates :first_name, presence: true
 
@@ -30,6 +30,10 @@ class User < ActiveRecord::Base
       def new_token
         SecureRandom.urlsafe_base64
       end
+  end
+  
+  def new_subscription?
+    new_subscription
   end
   
   def activate

@@ -23,6 +23,7 @@ class UsersController < ApplicationController
   def edit
     # @user is defined in correct_user that is being called before_action
     @show_trial_alert = true
+    @show_subscription_alert = true
   end
   
   def update

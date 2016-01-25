@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160120063920) do
+ActiveRecord::Schema.define(version: 20160125052739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,16 +28,22 @@ ActiveRecord::Schema.define(version: 20160120063920) do
   create_table "users", force: :cascade do |t|
     t.string   "email"
     t.string   "password_digest"
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
-    t.boolean  "reminder",          default: true
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+    t.boolean  "reminder",               default: true
     t.string   "activation_digest"
-    t.boolean  "activated",         default: false
+    t.boolean  "activated",              default: false
     t.datetime "activated_at"
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.string   "first_name"
     t.integer  "reminder_count"
+    t.string   "stripe_id"
+    t.string   "stripe_subscription_id"
+    t.string   "card_last4"
+    t.integer  "card_exp_month"
+    t.integer  "card_exp_year"
+    t.string   "card_brand"
   end
 
 end
