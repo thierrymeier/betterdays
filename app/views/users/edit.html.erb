@@ -39,7 +39,11 @@
           </div>
         </div>
         <%= f.submit "Update Account", class: 'btn btn-primary' %>
-        <% if is_subscribed? %><!--<span> We'll charge you $3.00 on <%= @next_billing %></span>--><% end %>
+        <% if is_subscribed? %>
+          <div class="next-payment">
+            <span>Next charge of $3.00 will be on <%= @next_billing %>, thank you!</span>
+          </div>
+        <% end %>
         
     <% end %>
 
