@@ -1,5 +1,6 @@
 require 'test_helper'
 
+
 class PasswordResetsTest < ActionDispatch::IntegrationTest
   def setup
     ActionMailer::Base.deliveries.clear
@@ -18,20 +19,20 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     assert_not_equal @user.reset_digest, @user.reload.reset_digest
     assert_equal 1, ActionMailer::Base.deliveries.size
     assert_not flash.empty?
-    assert_redirected_to root_url
+    assert_redirected_to login_path
     # Password reset form
     user = assigns(:user)
     # Wrong email
     get edit_password_reset_path(user.reset_token, email: "")
-    assert_redirected_to root_url
+    assert_redirected_to login_path
     # Inactive user
     user.toggle!(:activated)
     get edit_password_reset_path(user.reset_token, email: user.email)
-    assert_redirected_to root_url
+    assert_redirected_to login_path
     user.toggle!(:activated)
     # Right email, wrong token
     get edit_password_reset_path('wrong token', email: user.email)
-    assert_redirected_to root_url
+    assert_redirected_to login_path
     # Right email, right token
     get edit_password_reset_path(user.reset_token, email: user.email)
     assert_template 'password_resets/edit'
@@ -56,6 +57,6 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
                   password_confirmation: "foobaz" }
     assert is_logged_in?
     assert_not flash.empty?
-    assert_redirected_to root_url
+    assert_redirected_to login_path
   end
 end
