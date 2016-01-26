@@ -35,11 +35,11 @@
         <div class="settings-actions text-center">
            <div class="cancel-subscription">
              <%= link_to "Change password", new_password_reset_path %>
-            <% if is_subscribed? %><span>Cancel subscription</span><% end %>
+            <% if is_subscribed? %><%= link_to "Cancel subscription", subscription_path, data: { confirm: "Are you sure?" }, method: :delete %><% end %>
           </div>
         </div>
         <%= f.submit "Update Account", class: 'btn btn-primary' %>
-        <!--<span> We'll charge you $3.00 on <%= @next_billing %></span>-->
+        <% if is_subscribed? %><!--<span> We'll charge you $3.00 on <%= @next_billing %></span>--><% end %>
         
     <% end %>
 

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :sessions
   resources :charges
   resource :subscription
+  resource :card
   resources :users,                 except: [:index, :show, :destroy]
   resources :account_activations,   only: [:edit]
   resources :password_resets,       only: [:new, :create, :edit, :update]

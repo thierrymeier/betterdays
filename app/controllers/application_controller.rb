@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
   
   def is_subscribed?
-    !current_user.stripe_subscription_id.nil?
+    current_user.stripe_subscription_id
   end
   helper_method :is_subscribed?
   

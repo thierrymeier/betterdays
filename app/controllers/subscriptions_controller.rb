@@ -42,6 +42,17 @@ class SubscriptionsController < ApplicationController
   end
   
   def destroy
-  end
+    customer = Stripe::Customer.retrieve(current_user.stripe_id)
+    customer.subscriptions.retrieve(current_user.stripe_subscription_id).delete
+    current_user.update(stripe_subscription_id: nil)
   
+    current_user.attributes = {
+        :stripe_subscription_id => nil
+    }
+  
+    current_user.save(:validate => false)
+  
+    flash[:success] = "We have cancelled your account – but.. we're sad :(."
+    redirect_to root_path
+  end
 end
