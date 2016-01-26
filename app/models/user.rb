@@ -7,8 +7,8 @@ class User < ActiveRecord::Base
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: { maximum: 250 }, uniqueness: { 
                     case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
-  validates :password, presence: true, length: { minimum: 6 }
-  validates :first_name, presence: true
+  validates :password, presence: true, length: { minimum: 6 }, :on => :create
+  validates :first_name, presence: true, :on => :create, :on => :edit
 
   # Returns true if the given token matches the digest.
   def authenticated?(attribute, token)

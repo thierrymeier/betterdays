@@ -19,32 +19,27 @@
             <%= f.email_field :email, class: 'form-control text' %>
           </div>
         </div>
-        <div class="form-group">
-          <div class = "form-label">
-            <%= f.label :password %>
-          </div>
-          <div class = "form-input">
-            <%= f.password_field :password, class: 'form-control text' %>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class = "form-label">
-            <%= f.label :password_confirmation %>
-          </div>
-          <div class = "form-input">
-            <%= f.password_field :password_confirmation, class: 'form-control text' %>
-          </div>
-        </div>
+        
         <div class="checkbox">
         <%= f.label :reminder, class: 'checkbox inline' do %>
           <%= f.check_box :reminder %>
           <span>Receive a daily reminder to write your journal</span>
         <% end %>
-        <% if is_subscribed? %>
-        <span>Cancel subscription (We'll charge you $3.00 on <%= @next_billing %>)</span>
+        </div>
+        <div class="checkbox">
+        <%= f.label :newsletter, class: 'checkbox inline' do %>
+          <%= f.check_box :newsletter %>
+          <span>Receive irregular news from us</span>
         <% end %>
         </div>
+        <div class="settings-actions text-center">
+           <div class="cancel-subscription">
+             <%= link_to "Change password", new_password_reset_path %>
+            <% if is_subscribed? %><span>Cancel subscription</span><% end %>
+          </div>
+        </div>
         <%= f.submit "Update Account", class: 'btn btn-primary' %>
+        <!--<span> We'll charge you $3.00 on <%= @next_billing %></span>-->
         
     <% end %>
 
