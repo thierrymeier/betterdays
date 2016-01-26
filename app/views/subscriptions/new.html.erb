@@ -11,7 +11,7 @@
       <label>Card Number</label>
     </div>
     <div class="form-input">  
-      <input class="form-control" value="4242 4242 4242 4242" type="text" size="20" data-stripe="number"/>
+      <input class="form-control" <% if Rails.env.development? %>value="4242 4242 4242 4242"<% end %> type="text" size="20" data-stripe="number"/>
     </div>
   </div>
 
@@ -20,7 +20,7 @@
       <label>CVC</label> 
     </div>
     <div class="form-input">
-      <input class="form-control" value="123" type="text" size="4" data-stripe="cvc"/>
+      <input class="form-control" <% if Rails.env.development? %>value="123"<% end %> type="text" size="4" data-stripe="cvc"/>
     </div>
   </div>
 
@@ -29,7 +29,7 @@
       <label>Expiration Month (MM)</label>
     </div>
     <div class="form-input">
-      <input class="form-control" value="05" type="text" size="2" data-stripe="exp-month"/>
+      <input class="form-control" <% if Rails.env.development? %>value="05"<% end %> type="text" size="2" data-stripe="exp-month"/>
     </div>
   </div>
   
@@ -38,7 +38,7 @@
       <label>Expiration Year (YYYY)</label>
     </div>
     <div class="form-input">
-      <input class="form-control" value="2019" type="text" size="4" data-stripe="exp-year"/>
+      <input class="form-control" <% if Rails.env.development? %>value="2019"<% end %> type="text" size="4" data-stripe="exp-year"/>
     </div>
   </div>
 
