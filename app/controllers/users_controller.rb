@@ -24,6 +24,10 @@ class UsersController < ApplicationController
     # @user is defined in correct_user that is being called before_action
     @show_trial_alert = true
     @show_subscription_alert = true
+    if is_subscribed?
+      invoice = Stripe::Invoice.upcoming(:customer => current_user.stripe_id)
+      @next_billing = Time.at(invoice.date).strftime("%A, %d of %B")
+    end
   end
   
   def update

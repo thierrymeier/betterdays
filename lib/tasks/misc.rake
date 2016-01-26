@@ -16,6 +16,38 @@ namespace :misc do
 end
 
 namespace :misc do
+  desc "Remove subscription from test user"
+  task :removesubscription => :environment do
+    @user = User.find(1)
+    @user.attributes = {
+      :stripe_id => nil,
+      :stripe_subscription_id => nil,
+      :card_last4 => nil,
+      :card_exp_month => nil,
+      :card_exp_year => nil,
+      :card_brand => nil
+    }
+    @user.save(:validate => false)
+  end
+end
+
+namespace :misc do
+  desc "Remove trial period (set created_at far back)"
+  task :removetrial => :environment do
+    @user = User.find(1)
+    @user.update_attribute(:created_at, "2016-01-01 00:00:00")
+  end
+end
+
+namespace :misc do
+  desc "Invoke trial period (set created_at to today minus a few days)"
+  task :invoketrial => :environment do
+    @user = User.find(1)
+    @user.update_attribute(:created_at, Time.now)
+  end
+end
+
+namespace :misc do
   desc "Find out who hasn't written in three days"
   task :nopost3days => :environment do
     User.all.each do |user|

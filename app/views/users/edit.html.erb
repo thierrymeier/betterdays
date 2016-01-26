@@ -40,6 +40,9 @@
           <%= f.check_box :reminder %>
           <span>Receive a daily reminder to write your journal</span>
         <% end %>
+        <% if is_subscribed? %>
+        <span>Cancel subscription (We'll charge you $3.00 on <%= @next_billing %>)</span>
+        <% end %>
         </div>
         <%= f.submit "Update Account", class: 'btn btn-primary' %>
         
