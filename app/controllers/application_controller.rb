@@ -14,6 +14,11 @@ class ApplicationController < ActionController::Base
   end
   helper_method :is_subscribed?
   
+  def is_on_trial?
+    current_user.created_at > 14.days.ago
+  end
+  helper_method :is_on_trial?
+  
   private
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]

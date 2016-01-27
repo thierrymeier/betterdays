@@ -1,8 +1,12 @@
 <div class="row">
   <div class="subscribe col-xs-12 text-center">
     
-<h1>Monthly Subscription</h1>
-<p><%= current_user.first_name %>, we'll charge you <strong>$3</strong> per month. You can cancel anytime.</p>
+<h1>Subscribe to Better Days</h1>
+
+<div class="plan text-center">
+  <p>$3/m</p>
+  <span>cancel anytime</span>
+</div>
 
 <%= form_tag subscription_path, id: "payment-form" do %>
   <span class="payment-errors"></span>
@@ -23,28 +27,28 @@
       <input class="form-control" <% if Rails.env.development? %>value="123"<% end %> type="text" size="4" data-stripe="cvc"/>
     </div>
   </div>
-
-  <div class="form-group">
-    <div class="form-label">
-      <label>Expiration Month (MM)</label>
-    </div>
-    <div class="form-input">
-      <input class="form-control" <% if Rails.env.development? %>value="05"<% end %> type="text" size="2" data-stripe="exp-month"/>
-    </div>
-  </div>
   
   <div class="form-group">
     <div class="form-label">
-      <label>Expiration Year (YYYY)</label>
+      <label>Expiration Date</label>
     </div>
-    <div class="form-input">
-      <input class="form-control" <% if Rails.env.development? %>value="2019"<% end %> type="text" size="4" data-stripe="exp-year"/>
+    <div class="col-sm-8 col-sm-offset-3">
+      <div class="form-group row">
+        <div class="form-input col-sm-4">
+          <input class="form-control semi-input" <% if Rails.env.development? %>value="05"<% end %> type="text" size="4" data-stripe="exp-month"/>
+        </div>
+        <div class="form-input col-sm-4">
+          <input class="form-control semi-input semi-input-last" <% if Rails.env.development? %>value="2019"<% end %> type="text" size="4" data-stripe="exp-year"/>
+        </div>
+      </div>
     </div>
   </div>
 
   <button class="btn btn-primary" type="submit">Submit Payment</button>
-<% end %>
-
+  <% end %>
+    <div class="stripe-disclaimer">
+      <p>Powered by <span>Stripe</span></p>
+    </div>
   </div>
 </div>
 
