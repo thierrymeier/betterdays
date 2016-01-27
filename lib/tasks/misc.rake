@@ -57,3 +57,12 @@ namespace :misc do
     end
   end
 end
+
+namespace :users do
+  desc "Show all users"
+  task :show => :environment do
+    User.all.order(:id).each do |user|
+      puts "#{user.id}: #{user.first_name} <#{user.email}>"
+    end
+  end
+end
