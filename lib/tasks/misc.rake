@@ -66,3 +66,14 @@ namespace :users do
     end
   end
 end
+
+namespace :users do
+  desc 'Deletes a given user. Usage: users:delete USER=42'
+  task :delete => :environment do |t, args|
+    user_id = ENV['USER'].to_i
+    puts "Deleting user with id = #{user_id}"
+ 
+    user = User.find(user_id)
+    user.destroy
+  end
+end
