@@ -10,7 +10,7 @@
     		$('.logo').fadeTo(1200, 0.2);
     		$('.footer').fadeTo(1200, 0.2);
     		$('.search').fadeTo(1200, 0.3);
-    		$('.entries').fadeTo(1200, 0.05);
+    		$('.entries-list').fadeTo(1200, 0.05);
     		$('nav').fadeTo(1200, 0.2);
        });
    
@@ -18,7 +18,7 @@
             $('.logo').fadeTo(600, 1);
             $('.footer').fadeTo(600, 1);
     	    $('.search').fadeTo(600, 1);
-    		$('.entries').fadeTo(600, 1);
+    		$('.entries-list').fadeTo(600, 1);
     		$('nav').fadeTo(600, 1);
        });
    
@@ -69,7 +69,7 @@
 <!--<div class="row separator circle text-center"></div>-->
 
 <% if @entries.any? %>
-<div class="row entries">
+<div class="row entries-list">
     <div class="all-entries col-xs-12 text-center">
         <ul class="link-list">
             <% @entries.each do |entry| %>
