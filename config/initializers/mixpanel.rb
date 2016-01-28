@@ -1,0 +1,5 @@
+if Rails.env.production?
+  MIXPANEL_TOKEN = ENV['MIXPANEL_TOKEN']
+else
+  MIXPANEL_TOKEN = '291c6a2854aee2287ea56834267cfe39' 
+end
