@@ -1,6 +1,14 @@
 <script type="text/javascript">
-  heap.identify({   email:    '<%= current_user.email %>',
-                    name:     '<%= current_user.first_name %>'});
+  mixpanel.track("View all entries page");
+  mixpanel.identify("<%= current_user.id %>");
+  mixpanel.people.set({
+    "$first_name": "<%= current_user.first_name %>",
+    "$email": "<%= current_user.email %>"
+  });
+  
+  mixpanel.track_links("nav a#logout", "Click logout");
+  mixpanel.track_forms("#new_entry", "Created new entry");
+  mixpanel.track_forms("#search-form", "Searching entries");
 </script>
 
 <script type="text/javascript">
@@ -38,7 +46,7 @@
 <div class="row search">
     <div class="search col-xs-12 text-center">
         
-        <%= form_tag(search_entries_path, :method => "post", class: "search-form") do %>
+        <%= form_tag(search_entries_path, :method => "post", class: "search-form", id: "search-form") do %>
             <%= text_field_tag :search, params[:search], placeholder: "Search for previous entries..", class: "form-control" %>
         <% end %>
         
@@ -59,7 +67,7 @@
             
                 <%= f.text_area :content, class: 'form-control compose-textarea textarea', autocomplete: "off", placeholder: "Hey #{current_user.first_name}, tell me about your day.." %> 
                 
-                <%= f.submit "Submit", class: "btn btn-primary" %>
+                <%= f.submit "Create Entry", class: "btn btn-primary", id: "btn-compose" %>
         
             <% end %>
         <% end %>
@@ -73,7 +81,7 @@
     <div class="all-entries col-xs-12 text-center">
         <ul class="link-list">
             <% @entries.each do |entry| %>
-                <li><%= link_to entry.try(:created_at).try(:strftime, '%A, %d of %B %Y'), entry %></li>
+                <li><%= link_to entry.try(:created_at).try(:strftime, '%A, %d of %B %Y'), entry, class: "entry-link" %></li>
             <% end %>
         </ul>
     </div>
