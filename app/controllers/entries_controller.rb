@@ -21,7 +21,6 @@ class EntriesController < ApplicationController
       flash[:success] = "Awesome, your new entry has been filed in the books!"
       redirect_to entries_path
     else
-      flash.now[:danger] = "Come on, your life is more interesting than that. Write a bit more!"
       render 'index'
     end
   end

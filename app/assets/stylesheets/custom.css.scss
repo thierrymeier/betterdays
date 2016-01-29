@@ -243,6 +243,12 @@ textarea.form-control {
     
 }
 
+.field_with_errors textarea {
+    &::-webkit-input-placeholder {
+        color: #E45364;
+    }
+}
+
 #error_explanation {
   color: #D0021B;
   ul {
