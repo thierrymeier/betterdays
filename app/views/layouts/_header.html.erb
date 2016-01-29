@@ -1,11 +1,6 @@
 <% if @show_trial_alert %>
   <% if is_on_trial? %>
-    <div class="alert alert-info">There are <%= (((current_user.created_at + 14.days) - Time.now)/60/60/24).round %> days remaining in your free trial.</div>
-  <% end %>
-<% end %>
-<% if @show_subscription_alert %>
-  <% if current_user.created_at < 14.days.ago && !is_subscribed? %>
-    <div class="alert alert-danger">Oh snap! Your 14 day trial has expired. <%= link_to "Subscribe here", new_subscription_path, 'data-no-turbolink' => true %> to keep on journaling (and buy us a coffee).</div>
+    <div class="alert alert-info">There are <%= (((current_user.created_at + 14.days) - Time.current)/60/60/24).round %> days remaining in your free trial.</div>
   <% end %>
 <% end %>
 

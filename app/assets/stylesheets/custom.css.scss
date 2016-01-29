@@ -152,6 +152,19 @@ input.btn.btn-primary {
     background-color: #1A1A1A;
 }
 
+.btn-subscribe {
+    background: #7ED321;
+    text-decoration: none;
+    text-shadow: none;
+    padding-top: 12px;
+    position: relative;
+    box-shadow: none;
+    
+    &:hover {
+        background: #75D012;
+    }
+}
+
 .stripe-button-el {
     background-image: none;
     
@@ -280,6 +293,10 @@ nav {
         
         a:hover {
             color: #D9D9D9 ;
+        }
+        
+        a:focus {
+            color: #D9D9D9;
         }
     }
     

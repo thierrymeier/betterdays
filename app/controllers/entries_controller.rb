@@ -4,7 +4,6 @@ class EntriesController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
 
   def index
-    @show_subscription_alert = true
     @entry = Entry.new
   end
   
@@ -70,7 +69,7 @@ class EntriesController < ApplicationController
     helper_method :has_journaled_today?
     
     def has_journaled_today?
-      @entries.first.try(:created_at).try(:strftime, '%d %B %Y') == Time.now.strftime("%d %B %Y")
+      @entries.first.try(:created_at).try(:strftime, '%d %B %Y') == Time.current.strftime("%d %B %Y")
     end
     
     helper_method :has_journaled_yesterday?
