@@ -5,8 +5,10 @@
   mixpanel.identify("<%= current_user.id %>");
   mixpanel.people.set({
     "$first_name": "<%= current_user.first_name %>",
-    "$email": "<%= current_user.email %>",
-    <% if @entries.any? %> "$last_post": "<%= current_user.entries.first.created_at.strftime("%A, %d of %B") %>" <% end %>
+    "$email": "<%= current_user.email %>"
+    <% if @entries.any? %>
+    "$last_post": "<%= current_user.entries.first.created_at %>"
+    <% end %>
   });
   
   mixpanel.track_links("nav a#logout", "Click logout");
