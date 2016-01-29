@@ -54,13 +54,6 @@ class EntriesControllerTest < ActionController::TestCase
     #end
   #end
   
-  test "should not create entry with less than 50 characters" do
-    log_in_as(@user)
-    assert_no_difference 'Entry.count' do
-      post :create, entry: { content: "Lorem Ipsum" }
-    end
-  end
-  
   # Edit
   test "should edit entry that belongs to you" do
     log_in_as(@user)

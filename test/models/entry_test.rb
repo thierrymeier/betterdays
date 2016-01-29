@@ -21,11 +21,6 @@ class EntryTest < ActiveSupport::TestCase
     assert_not @entry.valid?
   end
   
-  test "content should be longer than" do
-    @entry.content = "Lorem"
-    assert_not @entry.valid?
-  end
-  
   test "order should be most recent first" do
     assert_equal entries(:most_recent), Entry.first
   end

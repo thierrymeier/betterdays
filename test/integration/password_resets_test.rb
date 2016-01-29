@@ -24,15 +24,15 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
     user = assigns(:user)
     # Wrong email
     get edit_password_reset_path(user.reset_token, email: "")
-    assert_redirected_to login_path
+    assert_redirected_to root_path
     # Inactive user
     user.toggle!(:activated)
     get edit_password_reset_path(user.reset_token, email: user.email)
-    assert_redirected_to login_path
+    assert_redirected_to root_path
     user.toggle!(:activated)
     # Right email, wrong token
     get edit_password_reset_path('wrong token', email: user.email)
-    assert_redirected_to login_path
+    assert_redirected_to root_path
     # Right email, right token
     get edit_password_reset_path(user.reset_token, email: user.email)
     assert_template 'password_resets/edit'
@@ -57,6 +57,5 @@ class PasswordResetsTest < ActionDispatch::IntegrationTest
                   password_confirmation: "foobaz" }
     assert is_logged_in?
     assert_not flash.empty?
-    assert_redirected_to login_path
   end
 end

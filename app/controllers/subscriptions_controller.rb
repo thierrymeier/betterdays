@@ -8,12 +8,11 @@ class SubscriptionsController < ApplicationController
   end
   
   def create
-    flash.now[:danger] = "Something went wrong, please make sure JavaScript is enabled or AdBlock disabled."
-    @user = current_user
-    
     if params[:stripeToken].nil?
-      render 'new'
+      flash.now[:danger] = "Something went wrong, please make sure JavaScript is enabled or AdBlock disabled."
+      redirect_to new_subscription_path
     else
+      @user = current_user
       customer =  if current_user.stripe_id?
                     Stripe::Customer.retrieve(current_user.stripe_id)
                   else

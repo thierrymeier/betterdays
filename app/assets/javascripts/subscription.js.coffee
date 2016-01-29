@@ -1,4 +1,4 @@
-$(".subscriptions.create").ready ->
+$(".subscriptions.new").ready ->
   jQuery ->
     Stripe.setPublishableKey($("meta[name='stripe-key']").attr("content"))
     

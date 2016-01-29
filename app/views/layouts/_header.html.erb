@@ -5,7 +5,7 @@
 <% end %>
 <% if @show_subscription_alert %>
   <% if current_user.created_at < 14.days.ago && !is_subscribed? %>
-    <div class="alert alert-danger">Oh snap! Your 14 day trial has expired. <%= link_to "Subscribe here", new_subscription_path %> to keep on journaling (and buy us a coffee).</div>
+    <div class="alert alert-danger">Oh snap! Your 14 day trial has expired. <%= link_to "Subscribe here", new_subscription_path, 'data-no-turbolink' => true %> to keep on journaling (and buy us a coffee).</div>
   <% end %>
 <% end %>
 
