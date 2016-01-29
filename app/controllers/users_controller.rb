@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   def update
     # @user is defined in correct_user that is being called before_action
     if @user.update_attributes(user_params)
-      flash.now[:success] = "Kaboom, your account has been updated"
+      flash.now[:success] = "Your account has been updated"
       render 'edit'
     else
       flash.now[:danger] = "Uh oh, we could not update your account. Try again."
@@ -48,7 +48,7 @@ class UsersController < ApplicationController
   
   private
     def user_params
-      params.require(:user).permit(:email, :password, :reminder, :first_name, :newsletter)
+      params.require(:user).permit(:email, :password, :reminder, :first_name, :newsletter, :time_zone)
     end
   
 end
