@@ -226,14 +226,14 @@ textarea.form-control {
     border: none;
     box-shadow: none;
     text-align: center;
-    margin-top: 15px;
+    margin-top: 19px;
     resize: none;
     height: 34px;
     /*** height: 208px; ***/
     line-height: 36px;
     
     &::-webkit-input-placeholder {
-        color: #D8D8D8;
+        color: #BFBFBF;
     }
     
     @media screen and (min-width: 768px) {
