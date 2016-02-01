@@ -160,6 +160,10 @@ input.btn.btn-primary {
     position: relative;
     box-shadow: none;
     
+    &::after {
+        
+    }
+    
     &:hover {
         background: #75D012;
     }

@@ -42,7 +42,7 @@ class EntriesController < ApplicationController
   def destroy
     @entry = @entries.find Entry.decrypt_id(params[:id])
     @entry.destroy
-    flash[:success] = "BOOOOOM, your entry has been destroyed"
+    flash[:success] = "Pow! Your entry has been deleted!"
     redirect_to root_path
   end
   

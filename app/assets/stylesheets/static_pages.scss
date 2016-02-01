@@ -153,10 +153,6 @@ h1.hero {
     margin-right: 50px;
     margin-bottom: 0px;
     padding-top: 43px;
-    
-      &:nth-child(3) {
-        margin-right: 10px;
-      }
       
       &:nth-child(6) {
         margin-right: 0px;
@@ -271,6 +267,11 @@ h1.hero {
   
   @media screen and (min-width: 767px) {
     margin-bottom: 60px;
+    
+    &:last-child {
+      margin-bottom: 60px;
+    }
+    
   }
 }
 
