@@ -77,3 +77,13 @@ namespace :users do
     user.destroy
   end
 end
+
+namespace :misc do
+  desc "Remove trial period (set created_at far back)"
+  task :reset_streaks => :environment do
+    User.all.each do |user|
+      user.update_attribute(:streak_start, Time.now)
+      user.update_attribute(:streak_end, Time.now)
+    end
+  end
+end

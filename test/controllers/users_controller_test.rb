@@ -12,21 +12,21 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
   
-  # Edit
-
-  test "redirect edit when logged in as wrong user" do
-    log_in_as(@other_user)
+  test "should get edit" do
+    log_in_as(@user)
     get :edit, id: @user
-    assert flash.empty?
+    assert_response :success
+  end
+
+  test "should not get edit of another user" do
+    log_in_as(@user)
+    get :edit, id: @other_user
     assert_redirected_to root_url
   end
   
-  # Update
-  
-  test "redirect update when logged in as wrong user" do
-    log_in_as(@other_user)
-    patch :update, id: @user, user: { email: @user.email, password: "password", password_confirmation: "password" }
-    assert flash.empty?
+  test "should not update when logged in as wrong user" do
+    log_in_as(@user)
+    patch :update, id: @other_user, user: { email: @other_user.email, password: "password", password_confirmation: "password" }
     assert_redirected_to root_url
   end
 

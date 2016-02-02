@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160129044556) do
+ActiveRecord::Schema.define(version: 20160202053240) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,9 @@ ActiveRecord::Schema.define(version: 20160129044556) do
     t.string   "card_brand"
     t.boolean  "newsletter"
     t.string   "time_zone",              default: "Central Time (US & Canada)"
+    t.integer  "streak"
+    t.datetime "streak_start",           default: '2016-02-02 05:32:20'
+    t.datetime "streak_end",             default: '2016-02-02 05:33:10'
   end
 
 end

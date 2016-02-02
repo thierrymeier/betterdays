@@ -11,7 +11,21 @@ class EntriesControllerTest < ActionController::TestCase
     @other_user   = users(:steve)
   end
   
-  # Show
+  # Index Tests
+  
+  test "should show #index" do
+    log_in_as(@user)
+    get :index
+    assert_response :success
+  end
+  
+  # Show Tests
+  
+  test "should show entry" do
+    log_in_as(@user)
+    get :show, id: @entry
+    assert_template 'entries/show'
+  end
   
   test "should redirect show when not logged in" do
     get :show, id: @entry
@@ -23,12 +37,6 @@ class EntriesControllerTest < ActionController::TestCase
     get :show, id: @other_entry
     assert_not flash.empty?
     assert_redirected_to root_path
-  end
-  
-  test "should show entry that belongs to you" do
-    log_in_as(@user)
-    get :show, id: @entry
-    assert_template 'entries/show'
   end
   
   # Create 
