@@ -5,11 +5,7 @@ IntercomRails.config do |config|
   config.app_id = ENV["INTERCOM_APP_ID"] || "blitx83q"
   
 
-  config.user.custom_data = {
-    :name => Proc.new { |current_user| current_user.first_name },
-    :last_post => Proc.new { |current_user| current_user.entries.first.created_at.to_i },
-    :post_count => Proc.new { |current_user| current_user.entries.count }
-  }
+  
 
   # == Intercom secret key
   # This is required to enable secure mode, you can find it on your Setup
