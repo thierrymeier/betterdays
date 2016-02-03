@@ -45,5 +45,16 @@ mixpanel.init("<%= MIXPANEL_TOKEN %>");</script>
     <%= render 'layouts/header' %>
     <%= yield %>
     
+    <% if current_user && current_user.entries.any? %>
+      <%= intercom_script_tag({
+        :user_id => current_user.id,
+        :email => current_user.email,
+        :created_at => current_user.created_at,
+        :name => current_user.first_name,
+        :post_count => current_user.entries.count,
+        :last_post => current_user.entries.first.created_at.to_i
+      }) 
+      %>
+    <% end %>
   </body>
 </html>

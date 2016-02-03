@@ -7,6 +7,7 @@ IntercomRails.config do |config|
   config.user.custom_data = {
     :name => Proc.new { |current_user| current_user.first_name },
   }
+      
 
   # == Intercom secret key
   # This is required to enable secure mode, you can find it on your Setup
