@@ -6,8 +6,9 @@ IntercomRails.config do |config|
   
 
   config.user.custom_data = {
-    :last_post => Proc.new { |current_user| Entry.first.created_at.to_i },
-    :post_count => Proc.new { |current_user| Entry.all.count }
+    :name => Proc.new { |current_user| current_user.first_name },
+    :last_post => Proc.new { |current_user| current_user.entries.first.created_at.to_i },
+    :post_count => Proc.new { |current_user| current_user.entries.count }
   }
 
   # == Intercom secret key
