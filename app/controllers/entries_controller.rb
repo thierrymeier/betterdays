@@ -62,6 +62,7 @@ class EntriesController < ApplicationController
       intercom_user = intercom.users.create(:user_id => current_user.id, :name => current_user.first_name, :email => current_user.email, :signed_up_at => current_user.created_at, :last_seen_ip => request.remote_ip, :last_request_at => Time.now)
       intercom_user.custom_attributes["post_count"] = current_user.entries.count
       intercom_user.custom_attributes["last_post"] = current_user.entries.first.created_at if @entries.any?
+      intercom_user.custom_attributes["activated"] = current_user.activated
       intercom.users.save(intercom_user)
     end
   
