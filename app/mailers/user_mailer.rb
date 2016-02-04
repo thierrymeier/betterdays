@@ -21,11 +21,6 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: "Password reset"
   end
   
-  def reminder(user)
-    @user = user
-    mail to: user.email, subject: "You didn't journal in 3 days – need help?"
-  end
-  
   def test_email(user)
     @user = user
     mail to: user.email, subject: "Email test"
