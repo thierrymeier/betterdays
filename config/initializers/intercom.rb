@@ -1,0 +1,7 @@
+if Rails.env.production?
+  INTERCOM_APP_ID = ENV['INTERCOM_APP_ID']
+  INTERCOM_API_KEY = ENV['INTERCOM_API_KEY']
+else
+  INTERCOM_APP_ID = 'blitx83q'
+  INTERCOM_API_KEY = 'b6b3211cdadf1652204d0d72fbf8cf95a454d06e' 
+end

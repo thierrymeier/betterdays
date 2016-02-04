@@ -58,7 +58,7 @@ class EntriesController < ApplicationController
     end
     
     def update_intercom
-      intercom = Intercom::Client.new(app_id: 'blitx83q', api_key: 'b6b3211cdadf1652204d0d72fbf8cf95a454d06e')
+      intercom = Intercom::Client.new(app_id: INTERCOM_APP_ID, api_key: INTERCOM_API_KEY)
       intercom_user = intercom.users.create(:user_id => current_user.id, :name => current_user.first_name, :email => current_user.email, :signed_up_at => current_user.created_at, :last_seen_ip => request.remote_ip, :last_request_at => Time.now)
       intercom_user.custom_attributes["post_count"] = current_user.entries.count
       intercom_user.custom_attributes["last_post"] = current_user.entries.first.created_at if @entries.any?
