@@ -70,7 +70,7 @@ end
 namespace :users do
   desc "Show users that have not been activated yet"
   task :inactive => :environment do
-    User.all.where("activated = false") do |user|
+    User.all.where("activated = false").each do |user|
       puts "#{user.id}: #{user.first_name} <#{user.email}> (#{user.activated})"
     end
   end
