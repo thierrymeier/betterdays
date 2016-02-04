@@ -68,6 +68,15 @@ namespace :users do
 end
 
 namespace :users do
+  desc "Show users that have not been activated yet"
+  task :inactive => :environment do
+    User.all.where("activated = false") do |user|
+      puts "#{user.id}: #{user.first_name} <#{user.email}> (#{user.activated})"
+    end
+  end
+end
+
+namespace :users do
   desc 'Deletes a given user. Usage: users:delete USER=42'
   task :delete => :environment do |t, args|
     user_id = ENV['USER'].to_i
