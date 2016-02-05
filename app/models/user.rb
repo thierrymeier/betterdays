@@ -45,6 +45,10 @@ class User < ActiveRecord::Base
     UserMailer.account_activation(self).deliver_now
   end
   
+  def send_activation_reminder_email
+    UserMailer.activation_reminder(self).deliver_now
+  end
+  
   def send_start_email
     UserMailer.start_email(self).deliver_now
   end

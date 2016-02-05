@@ -76,6 +76,8 @@ namespace :users do
   end
 end
 
+
+
 namespace :users do
   desc 'Deletes a given user. Usage: users:delete USER=42'
   task :delete => :environment do |t, args|

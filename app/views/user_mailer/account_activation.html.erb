@@ -5,6 +5,9 @@
   to get journaling together!
 </p>
 
+<p>Please activate your account so you can get started right away: <%= link_to "Click here to active your account right now!", 
+edit_account_activation_url(@user.activation_token, email: @user.email) %> </p>
+
 <p>
   I think it is great that you have decided to start journaling. If you ask me, it
   is one of the most beneficial habits you can implement into your life.
@@ -36,9 +39,6 @@
 <p>
   Socrates said that the unexamined life is not worth living. I fully agree.
 </p>
-
-<p>Please activate your account so you can get started right away: <%= link_to "Activate", 
-edit_account_activation_url(@user.activation_token, email: @user.email) %> </p>
 
 <p>I'll check-in with you personally in a few days to check on your progress! :)</p>
 

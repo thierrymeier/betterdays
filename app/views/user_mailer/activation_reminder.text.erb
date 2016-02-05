@@ -1,0 +1,12 @@
+Hello <%= @user.first_name %>!
+
+This is Thierry from Better Days. I saw that you have signed up but not activated your account yet.
+
+You can activate your account right here: <%= link_to "Click me to activate your account", 
+edit_account_activation_url(@user.activation_token, email: @user.email) %>
+
+I'll be in touch in a few days! :)
+
+Let's build a a habit! 
+
+Thierry from Better Days
