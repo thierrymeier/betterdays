@@ -20,7 +20,7 @@ namespace :mail do
     User.with_reminder.find_each do |user|
       Time.zone = user.time_zone
       
-      if user.reminded == true && Time.current.strftime("%H").to_i == user.reminder_time + 1
+      if user.reminded == true
         user.update_attribute(:reminded, false)
         puts "Update to false"
         
