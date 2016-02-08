@@ -1,0 +1,9 @@
+Hey <%= @user.first_name %>!
+
+Just a friendly note to remind you to write a journal entry tonight! :)
+
+<%= link_to "Log in to Better Days", root_url %> or simply reply to this email to write a journal entry.
+
+-Thierry
+
+PS: Your reminder is currently scheduled for <%= @user.reminder_time %>. <%= link_to "Change schedule here.", root_url %>.

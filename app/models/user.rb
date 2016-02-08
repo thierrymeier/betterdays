@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
                     case_sensitive: false }, format: { with: VALID_EMAIL_REGEX }
   validates :password, presence: true, length: { minimum: 6 }, :on => :create
   validates :first_name, presence: true, :on => :create, :on => :edit
+  scope :with_reminder, -> { where(reminder: true) }
 
   # Returns true if the given token matches the digest.
   def authenticated?(attribute, token)

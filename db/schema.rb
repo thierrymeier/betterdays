@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202053240) do
+ActiveRecord::Schema.define(version: 20160208050703) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,8 @@ ActiveRecord::Schema.define(version: 20160202053240) do
     t.integer  "streak"
     t.datetime "streak_start",           default: '2016-02-02 05:32:20'
     t.datetime "streak_end",             default: '2016-02-02 05:33:10'
+    t.boolean  "reminded",               default: false
+    t.string   "reminder_time",          default: "06:00 PM"
   end
 
 end

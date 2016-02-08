@@ -26,4 +26,9 @@ class UserMailer < ApplicationMailer
     mail to: user.email, subject: "Activate Your Account To Get Started!"
   end
   
+  def daily_reminder(user)
+    @user = user
+    mail to: user.email, from: '"Thierry from Better Days" <deardiary@reply.betterdaysapp.com>', subject: "Friendly Reminder: Write Journal"
+  end
+  
 end

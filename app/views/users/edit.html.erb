@@ -33,16 +33,18 @@
             <%= f.time_zone_select :time_zone %>
           </div>
         </div>
-        <div class="checkbox">
-        <%= f.label :reminder, class: 'checkbox inline' do %>
-          <%= f.check_box :reminder %>
-          <span>Receive a daily reminder to write your journal</span>
-        <% end %>
+        <div class= "form-group" id="reminder-time">
+          <div class ="form-label">
+            <%= f.label :reminder_time %>
+          </div>
+          <div class = "form-input">
+            <%= f.select :reminder_time, [ '06:00 PM', '07:00 PM', '08:00 PM', '09:00 PM', '10:00 PM' ] %>
+          </div>
         </div>
         <div class="checkbox">
-        <%= f.label :newsletter, class: 'checkbox inline' do %>
-          <%= f.check_box :newsletter %>
-          <span>Receive irregular news from us</span>
+        <%= f.label :reminder, class: 'checkbox inline' do %>
+          <%= f.check_box :reminder, id: 'reminder-checkbox' %>
+          <span>Receive daily reminder</span>
         <% end %>
         </div>
         <div class="settings-actions text-center">

@@ -14,10 +14,8 @@ Rails.application.configure do
   config.action_controller.perform_caching = false
   
   # Email previewing
+  config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true
-  config.action_mailer.delivery_method = :test
-  host = 'bd-mvp-thierrmeier.c9users.io'
-  config.action_mailer.default_url_options = { host: host }
 
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
