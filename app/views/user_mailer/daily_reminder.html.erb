@@ -15,5 +15,5 @@
 </p>
 
 <p>
-  PS: Your reminder is currently scheduled for <%= @user.reminder_time %>. <%= link_to "Change schedule here", edit_user_path(@user) %>.
+  PS: Your reminder is currently scheduled for <%= @user.reminder_time %> in the timezone "<%= @user.time_zone %>". <%= link_to "Change schedule or timezone here", edit_user_path(@user) %>.
 </p>
