@@ -1,33 +1,5 @@
 <% provide(:title, "Better Days | A clutter-free and beautiful journaling application") %>
 <script type="text/javascript">
-$(function(){
-    $("h1.hero").typed({
-      strings: ["Dear ^300 Diary ^500, "],
-      typeSpeed: 20,
-      showCursor: false
-    });
-});
-
-$(function(){
-    $("p.post").typed({
-      strings: ["I am ^100 grateful for your <strong>clutter-free writing experience</strong>. ^300 Thank you for ^150 helping me journal everyday and ^200 keeping it <strong>safe</strong>."],
-      typeSpeed: 7,
-      showCursor: false,
-      startDelay: 2500
-    });
-});
-
-$(function(){
-    $("span.signature").typed({
-      strings: ["Yours ^100 truly."],
-      typeSpeed: 35,
-      showCursor: false,
-      startDelay: 9800
-    });
-});
-</script>
-
-<script type="text/javascript">
     mixpanel.track("Visited Landing Page");
 </script>
 
@@ -35,13 +7,10 @@ $(function(){
 <div class="row hero text-center">
     <div class="col-sm-12">
 
-      <h1 class="hero"></h1>
+      <h1 class="hero">Journaling made simple and beautiful.</h1>
       <p class="post">
-        
+        A journaling application that let's you focus on what matters: your words.
       </p>
-      <div class="signature">
-        <span class="signature"></span>
-      </div>
 
       <%= link_to "Start journaling today", signup_path, class: 'btn btn-primary' %>
       
