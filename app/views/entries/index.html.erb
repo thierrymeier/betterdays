@@ -63,10 +63,6 @@
         <% if @entries.any? && has_journaled_today? %>
             <h1 class="done">Done! You’ve written today’s journal! <%= emojify(":relaxed:") %></h1>
         
-        <% elsif !is_on_trial? && !is_subscribed? %>
-            <h1>Your trial has expired! <span><%= emojify(":grimacing:") %></span></h1>
-            <%= link_to "Subscribe now", new_subscription_path, class: "btn btn-primary btn-subscribe btn-arrow" %>
-        
         <% else %>
             <h1><%= Time.current.strftime("%A, %d of %B") %></h1>
             <%= form_for(@entry) do |f| %>
